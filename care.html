@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <!-- ==========================================================================
+       1. META TAGS & TITLE
+       ========================================================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คู่มือการดูแลสุขภาพและโภชนาการ (Care & Nutrition) - สุนัขเลี้ยงดอทคอม</title>
+
+  <!-- ==========================================================================
+       2. EXTERNAL CSS & FONTS
+       ========================================================================== -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       3. NAVIGATION BAR (แถบเมนูนำทางหลักทั้ง 6 หน้า)
+       ========================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="brand-icon"><i class="fa-solid fa-paw"></i></span>
+        <span>สุนัขเลี้ยงดอทคอม</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="สลับแถบเมนู">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
+          <!-- เมนูที่ 1: หน้าแรก -->
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="fa-solid fa-house me-1"></i> หน้าแรก
+            </a>
+          </li>
+          <!-- เมนูที่ 2: หน้ารวมสายพันธุ์สุนัข -->
+          <li class="nav-item">
+            <a class="nav-link" href="breeds.html">
+              <i class="fa-solid fa-dog me-1"></i> รวมสายพันธุ์
+            </a>
+          </li>
+          <!-- เมนูที่ 3: หน้าหมวดหมู่/กลุ่มสุนัข -->
+          <li class="nav-item">
+            <a class="nav-link" href="groups.html">
+              <i class="fa-solid fa-layer-group me-1"></i> กลุ่มสายพันธุ์
+            </a>
+          </li>
+          <!-- เมนูที่ 4: หน้าค้นหาสุนัขที่เหมาะกับคุณ -->
+          <li class="nav-item">
+            <a class="nav-link" href="quiz.html">
+              <i class="fa-solid fa-wand-magic-sparkles me-1"></i> ค้นหาสุนัขที่ใช่
+            </a>
+          </li>
+          <!-- เมนูที่ 5: หน้าคู่มือการดูแลสุขภาพและโภชนาการ (Active ที่หน้านี้) -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="care.html">
+              <i class="fa-solid fa-heart-pulse me-1"></i> การดูแลและสุขภาพ
+            </a>
+          </li>
+          <!-- เมนูที่ 6: หน้าติดต่อเรา / แบบฟอร์มสอบถาม -->
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">
+              <i class="fa-solid fa-envelope me-1"></i> ติดต่อเรา
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       4. PAGE HEADER BANNER (แบนเนอร์หัวหน้าเว็บ)
+       ========================================================================== -->
+  <header class="page-header-banner">
+    <div class="container text-center">
+      <span class="badge bg-warning text-dark rounded-pill mb-2">
+        <i class="fa-solid fa-heart-pulse me-1"></i> Health & Wellness Guide
+      </span>
+      <h1 class="fw-bold mb-2">คู่มือการดูแลสุขภาพและโภชนาการ</h1>
+      <p class="text-secondary mb-0">รวบรวมหลักการดูแลสุนัขอย่างถูกวิธี ตั้งแต่วัยเด็กจนถึงวัยชรา เพื่อสุขภาพที่แข็งแรงและอายุยืนยาว</p>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       5. CARE CATEGORIES SECTION (หัวข้อหลักการดูแลสุนัข)
+       ========================================================================== -->
+  <main class="section-padding">
+    <div class="container">
+      
+      <!-- หมวดหมู่ที่ 1: โภชนาการและอาหาร -->
+      <section class="mb-5">
+        <div class="d-flex align-items-center mb-4">
+          <div class="bg-warning text-dark p-2 rounded-3 me-3 fs-4">
+            <i class="fa-solid fa-bowl-food"></i>
+          </div>
+          <div>
+            <h3 class="fw-bold mb-0">1. โภชนาการและอาหารการกิน (Nutrition)</h3>
+            <span class="text-muted small">สารอาหารที่จำเป็นและข้อควรระวังในการให้อาหาร</span>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card custom-card h-100 p-4">
+              <h5 class="fw-bold text-dark"><i class="fa-solid fa-check text-success me-2"></i>สารอาหารที่สุนัขต้องการ</h5>
+              <p class="text-muted small">
+                สุนัขต้องการสารอาหาร 6 หมู่ ได้แก่ โปรตีน ไขมัน คาร์โบไฮเดรต วิตามิน แร่ธาตุ และน้ำสะอาด โดยสัดส่วนจะแตกต่างกันตามช่วงวัย เช่น ลูกสุนัขต้องการโปรตีนและแคลเซียมสูงเพื่อการเจริญเติบโต
+              </p>
+              <ul class="text-secondary small mb-0 ps-3">
+                <li>เลือกอาหารเม็ดเกรดพรีเมียมที่มีสารอาหารครบถ้วนตามมาตรฐาน AAFCO</li>
+                <li>จัดเตรียมน้ำดื่มสะอาดวางไว้ตลอด 24 ชั่วโมง</li>
+                <li>ควบคุมปริมาณแคลอรี่เพื่อป้องกันภาวะโรคอ้วน</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card custom-card h-100 p-4 border-danger">
+              <h5 class="fw-bold text-danger"><i class="fa-solid fa-triangle-exclamation me-2"></i>อาหารอันตรายที่ห้ามให้สุนัขกินเด็ดขาด!</h5>
+              <p class="text-muted small mb-2">อาหารบางประเภทของมนุษย์มีสารพิษรุนแรงต่อร่างกายสุนัข:</p>
+              <div class="table-responsive">
+                <table class="table table-sm table-bordered small mb-0">
+                  <thead class="table-danger">
+                    <tr>
+                      <th>ชื่ออาหาร</th>
+                      <th>อันตรายที่เกิดขึ้น</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="fw-semibold">ช็อกโกแลต / โกโก้</td>
+                      <td>มีสาร Theobromine ทำให้อัตราเต้นหัวใจผิดปกติ ชัก หรือเสียชีวิต</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">องุ่น / ลูกเกด</td>
+                      <td>ก่อให้เกิดภาวะไตวายเฉียบพลัน</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">หัวหอม / กระเทียม</td>
+                      <td>ทำลายเม็ดเลือดแดง ทำให้เกิดภาวะโลหิตจาง</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">สารให้ความหวาน (Xylitol)</td>
+                      <td>กระตุ้นให้อินซูลินหลั่ง น้ำตาลในเลือดตก ตับวาย</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- หมวดหมู่ที่ 2: การดูแลสุขภาพและวัคซีน -->
+      <section class="mb-5">
+        <div class="d-flex align-items-center mb-4">
+          <div class="bg-primary text-white p-2 rounded-3 me-3 fs-4">
+            <i class="fa-solid fa-syringe"></i>
+          </div>
+          <div>
+            <h3 class="fw-bold mb-0">2. การฉีดวัคซีนและการป้องกันปรสิต (Health Care)</h3>
+            <span class="text-muted small">ตารางการป้องกันโรคติดต่อสำคัญ</span>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card custom-card h-100 p-3">
+              <div class="card-body">
+                <h5 class="fw-bold text-primary mb-2">วัคซีนรวม & พิษสุนัขบ้า</h5>
+                <p class="text-muted small">ฉีดกระตุ้นเข็มแรกเริ่มตั้งแต่อายุ 6-8 สัปดาห์ และจำเป็นต้องฉีดกระตุ้นซ้ำทุกๆ 1 ปี เพื่อเสริมสร้างภูมิคุ้มกัน</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card custom-card h-100 p-3">
+              <div class="card-body">
+                <h5 class="fw-bold text-primary mb-2">ป้องกันพยาธิหนอนหัวใจ</h5>
+                <p class="text-muted small">พยาธิหนอนหัวใจมียุงเป็นพาหะ ควรให้ยากิน ยาหยอดหลัง หรือยาฉีดป้องกันเป็นประจำทุกเดือน</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card custom-card h-100 p-3">
+              <div class="card-body">
+                <h5 class="fw-bold text-primary mb-2">กำจัดเห็บ หมัด และพยาธิลำไส้</h5>
+                <p class="text-muted small">เห็บหมัดเป็นพาหะนำโรคพยาธิเม็ดเลือด ควรใช้ยาหยอดหรือยาเคี้ยวป้องกันตามรอบอย่างสม่ำเสมอ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- หมวดหมู่ที่ 3: สุขอนามัยและการกรูมมิ่ง -->
+      <section class="mb-5">
+        <div class="d-flex align-items-center mb-4">
+          <div class="bg-success text-white p-2 rounded-3 me-3 fs-4">
+            <i class="fa-solid fa-soap"></i>
+          </div>
+          <div>
+            <h3 class="fw-bold mb-0">3. สุขอนามัยและการกรูมมิ่ง (Grooming)</h3>
+            <span class="text-muted small">การดูแลความสะอาดขน เล็บ ฟัน และหู</span>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="card custom-card h-100 p-3 text-center">
+              <i class="fa-solid fa-shower text-success fs-1 mb-2"></i>
+              <h6 class="fw-bold">การอาบน้ำ</h6>
+              <p class="text-muted small mb-0">อาบน้ำทุก 2-4 สัปดาห์ ใช้แชมพูเฉพาะสำหรับสุนัขและเป่าขนให้แห้งสนิท</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card custom-card h-100 p-3 text-center">
+              <i class="fa-solid fa-scissors text-success fs-1 mb-2"></i>
+              <h6 class="fw-bold">การตัดเล็บ</h6>
+              <p class="text-muted small mb-0">ตัดเล็บทุก 2 สัปดาห์ ระวังไม่ให้โดนเส้นเลือดในเล็บเพื่อป้องกันอาการบาดเจ็บ</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card custom-card h-100 p-3 text-center">
+              <i class="fa-solid fa-ear-listen text-success fs-1 mb-2"></i>
+              <h6 class="fw-bold">การเช็ดหู</h6>
+              <p class="text-muted small mb-0">เช็ดทำความสะอาดช่องหูสัปดาห์ละครั้ง เพื่อป้องกันไรหูและการติดเชื้อยีสต์</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card custom-card h-100 p-3 text-center">
+              <i class="fa-solid fa-tooth text-success fs-1 mb-2"></i>
+              <h6 class="fw-bold">การแปรงฟัน</h6>
+              <p class="text-muted small mb-0">แปรงฟันอย่างน้อยสัปดาห์ละ 2-3 ครั้ง เพื่อลดคราบหินปูนและกลิ่นปาก</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- หมวดหมู่ที่ 4: คำถามที่พบบ่อย (FAQ Accordion) -->
+      <section>
+        <div class="d-flex align-items-center mb-4">
+          <div class="bg-secondary text-white p-2 rounded-3 me-3 fs-4">
+            <i class="fa-solid fa-circle-question"></i>
+          </div>
+          <div>
+            <h3 class="fw-bold mb-0">คำถามที่พบบ่อย (Frequently Asked Questions)</h3>
+            <span class="text-muted small">ข้อสงสัยยอดนิยมจากผู้เลี้ยงมือใหม่</span>
+          </div>
+        </div>
+
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item border rounded-3 mb-2">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                ลูกสุนัขเริ่มกินอาหารเม็ดได้ตั้งแต่อายุเท่าไหร่?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-secondary small">
+                ลูกสุนัขเริ่มหัดกินอาหารเม็ดแช่น้ำอุ่นหรือนมแพะได้ตั้งแต่อายุประมาณ 3-4 สัปดาห์ และจะหย่านมแม่โดยสมบูรณ์เมื่ออายุประมาณ 6-8 สัปดาห์
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border rounded-3 mb-2">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                ทำไมสุนัขถึงไม่ควรอาบน้ำบ่อยเกินไป?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-secondary small">
+                การอาบน้ำบ่อยเกินไป (เช่น ทุก 2-3 วัน) จะชะล้างน้ำมันตามธรรมชาติบนผิวหนังออก ทำให้ผิวหนังแห้ง ลอกเป็นขุย คัน และเสี่ยงต่อการติดเชื้อทางผิวหนังได้ง่ายขึ้น
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border rounded-3 mb-2">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                ควรพาสุนัขไปตรวจสุขภาพประจำปีบ่อยแค่ไหน?
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-secondary small">
+                สุนัขโตเต็มวัยควรตรวจสุขภาพอย่างน้อยปีละ 1 ครั้ง ส่วนสุนัขสูงวัย (อายุ 7 ปีขึ้นไป) แนะนำให้ตรวจทุกๆ 6 เดือน เพื่อตรวจการทำงานของตับ ไต และหัวใจ
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       6. FOOTER SECTION (ส่วนท้ายเว็บไซต์)
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-heading">
+            <i class="fa-solid fa-paw text-warning me-2"></i>สุนัขเลี้ยงดอทคอม
+          </h5>
+          <p class="small text-secondary">
+            ศูนย์รวมข้อมูลสุนัขครบวงจร ช่วยให้คุณศึกษาและทำความเข้าใจสายพันธุ์สุนัขก่อนตัดสินใจเลี้ยงดู
+          </p>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-heading">เมนูหลัก (Navigation)</h5>
+          <ul class="list-unstyled small d-flex flex-column gap-2">
+            <li><a href="index.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> หน้าแรก (Home)</a></li>
+            <li><a href="breeds.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> รวมสายพันธุ์ (All Breeds)</a></li>
+            <li><a href="groups.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> กลุ่มสายพันธุ์ (Breed Groups)</a></li>
+            <li><a href="quiz.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> ค้นหาสุนัขที่ใช่ (Dog Matcher)</a></li>
+            <li><a href="care.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> การดูแลและสุขภาพ (Care & Nutrition)</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> ติดต่อเรา (Contact Us)</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+          <h5 class="footer-heading">ติดต่อสอบถาม</h5>
+          <p class="small text-secondary mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i> กรุงเทพมหานคร ประเทศไทย</p>
+          <p class="small text-secondary mb-2"><i class="fa-solid fa-phone me-2 text-warning"></i> 02-123-4567</p>
+          <p class="small text-secondary mb-3"><i class="fa-solid fa-envelope me-2 text-warning"></i> contact@msu.ac.th</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom text-center text-secondary">
+        <p class="mb-0">© 2026 สุนัขเลี้ยงดอทคอม. All rights reserved. พัฒนาด้วย HTML, Bootstrap และ JavaScript</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       7. SCRIPTS
+       ========================================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+

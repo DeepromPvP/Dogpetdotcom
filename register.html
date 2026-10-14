@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <!-- ==========================================================================
+       1. META TAGS & TITLE
+       ========================================================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ลงทะเบียนสมาชิก (Register) - สุนัขเลี้ยงดอทคอม</title>
+
+  <!-- ==========================================================================
+       2. EXTERNAL CSS & FONTS (Bootstrap 5, Font Awesome, Google Font)
+       ========================================================================== -->
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6 Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       3. NAVIGATION BAR
+       ========================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="brand-icon"><i class="fa-solid fa-paw"></i></span>
+        <span>สุนัขเลี้ยงดอทคอม</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="สลับแถบเมนู">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="fa-solid fa-house me-1"></i> หน้าแรก
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="breeds.html">
+              <i class="fa-solid fa-dog me-1"></i> รวมสายพันธุ์
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="groups.html">
+              <i class="fa-solid fa-layer-group me-1"></i> กลุ่มสายพันธุ์
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="quiz.html">
+              <i class="fa-solid fa-wand-magic-sparkles me-1"></i> ค้นหาสุนัขที่ใช่
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="care.html">
+              <i class="fa-solid fa-heart-pulse me-1"></i> การดูแลและสุขภาพ
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">
+              <i class="fa-solid fa-envelope me-1"></i> ติดต่อเรา
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-warning fw-semibold" aria-current="page" href="register.html">
+              <i class="fa-solid fa-user-plus me-1"></i> ลงทะเบียน
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.php">
+              <i class="fa-solid fa-right-to-bracket me-1"></i> เข้าสู่ระบบ
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       4. HEADER BANNER
+       ========================================================================== -->
+  <header class="page-header-banner">
+    <div class="container text-center">
+      <span class="badge bg-warning text-dark rounded-pill mb-2">
+        <i class="fa-solid fa-id-card me-1"></i> Register Member
+      </span>
+      <h1 class="fw-bold mb-2">สมัครสมาชิก / ลงทะเบียน</h1>
+      <p class="text-secondary mb-0">ร่วมเป็นส่วนหนึ่งของครอบครัวคนรักสุนัข รับข้อมูลข่าวสารและเทคนิคการดูแลสุนัขก่อนใคร</p>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       5. REGISTER FORM SECTION
+       ========================================================================== -->
+  <main class="section-padding py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+
+          <!-- กล่องข้อความแจ้งเตือนเมื่อลงทะเบียนสำเร็จ -->
+          <div id="registerSuccessAlert" class="alert alert-success d-none shadow-sm mb-4" role="alert">
+            <div class="d-flex align-items-center">
+              <i class="fa-solid fa-circle-check fs-3 me-3 text-success"></i>
+              <div>
+                <h5 class="alert-heading mb-1 fw-bold">ลงทะเบียนสำเร็จ!</h5>
+                <p class="mb-0 small" id="successDetail">ยินดีต้อนรับเข้าสู่ระบบสมาชิกสุนัขเลี้ยงดอทคอม</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- กล่องฟอร์มลงทะเบียน -->
+          <div class="card custom-card shadow-sm border-0 rounded-4 overflow-hidden">
+            <div class="card-header bg-white border-0 pt-4 pb-0 text-center">
+              <div class="d-inline-flex align-items-center justify-content-center bg-warning-subtle text-warning rounded-circle mb-3" style="width: 60px; height: 60px;">
+                <i class="fa-solid fa-user-plus fs-3"></i>
+              </div>
+              <h4 class="fw-bold mb-1">สร้างบัญชีสมาชิก</h4>
+              <p class="text-muted small">กรุณากรอกข้อมูลให้ครบถ้วนเพื่อลงทะเบียน</p>
+            </div>
+
+            <div class="card-body p-4 p-md-5 pt-3">
+              <form id="registerForm" action="information.php" method="POST" class="needs-validation" novalidate>
+
+                <!-- 1. ชื่อ - สกุล -->
+                <div class="mb-3">
+                  <label for="fullname" class="form-label fw-semibold small">
+                    <i class="fa-solid fa-user me-1 text-secondary"></i> ชื่อ - สกุล <span class="text-danger">*</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    class="form-control form-control-lg fs-6" 
+                    id="fullname" 
+                    name="fullname" 
+                    placeholder="เช่น สมชาย ใจดี" 
+                    required
+                  >
+                  <div class="invalid-feedback">
+                    กรุณากรอกชื่อและนามสกุลของคุณ
+                  </div>
+                </div>
+
+                <!-- 2. เบอร์โทร -->
+                <div class="mb-3">
+                  <label for="phone" class="form-label fw-semibold small">
+                    <i class="fa-solid fa-phone me-1 text-secondary"></i> เบอร์โทรศัพท์ <span class="text-danger">*</span>
+                  </label>
+                  <input 
+                    type="tel" 
+                    class="form-control form-control-lg fs-6" 
+                    id="phone" 
+                    name="phone" 
+                    placeholder="เช่น 0812345678" 
+                    pattern="^[0-9]{9,10}$" 
+                    required
+                  >
+                  <div class="invalid-feedback" id="phoneFeedback">
+                    กรุณากรอกเบอร์โทรศัพท์เป็นตัวเลข 9-10 หลัก
+                  </div>
+                </div>
+
+                <!-- 3. อีเมล์ -->
+                <div class="mb-3">
+                  <label for="email" class="form-label fw-semibold small">
+                    <i class="fa-solid fa-envelope me-1 text-secondary"></i> อีเมล <span class="text-danger">*</span>
+                  </label>
+                  <input 
+                    type="email" 
+                    class="form-control form-control-lg fs-6" 
+                    id="email" 
+                    name="email" 
+                    placeholder="เช่น somchai@example.com" 
+                    required
+                  >
+                  <div class="invalid-feedback" id="emailFeedback">
+                    กรุณากรอกรูปแบบอีเมลที่ถูกต้อง (เช่น yourname@domain.com)
+                  </div>
+                </div>
+
+                <!-- 4. เพศ (ตัวเลือก ชาย / หญิง) -->
+                <div class="mb-4">
+                  <label class="form-label fw-semibold small d-block mb-2">
+                    <i class="fa-solid fa-venus-mars me-1 text-secondary"></i> เพศ <span class="text-danger">*</span>
+                  </label>
+                  <div class="p-3 bg-light rounded-3 border">
+                    <div class="form-check form-check-inline me-4">
+                      <input 
+                        class="form-check-input" 
+                        type="radio" 
+                        name="gender" 
+                        id="genderMale" 
+                        value="ชาย" 
+                        required
+                      >
+                      <label class="form-check-label fw-normal" for="genderMale">
+                        <i class="fa-solid fa-mars text-primary me-1"></i> ชาย
+                      </label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                      <input 
+                        class="form-check-input" 
+                        type="radio" 
+                        name="gender" 
+                        id="genderFemale" 
+                        value="หญิง" 
+                        required
+                      >
+                      <label class="form-check-label fw-normal" for="genderFemale">
+                        <i class="fa-solid fa-venus text-danger me-1"></i> หญิง
+                      </label>
+                    </div>
+                  </div>
+                  <!-- แสดงข้อความเตือนเมื่อไม่เลือกเพศ -->
+                  <div class="invalid-feedback d-none" id="genderFeedback">
+                    กรุณาเลือกเพศของคุณ
+                  </div>
+                </div>
+
+                <!-- ปุ่มส่งข้อมูล -->
+                <div class="d-grid gap-2 pt-2">
+                  <button type="submit" class="btn btn-primary-custom btn-lg fs-6 py-3 fw-bold">
+                    <i class="fa-solid fa-user-check me-2"></i> ยืนยันการลงทะเบียน
+                  </button>
+                  <button type="reset" class="btn btn-outline-secondary btn-sm mt-1">
+                    <i class="fa-solid fa-rotate-left me-1"></i> ล้างข้อมูล
+                  </button>
+                </div>
+
+                <!-- ลิงก์สำหรับผู้ที่มีบัญชีอยู่แล้ว -->
+                <div class="text-center pt-3 border-top mt-3">
+                  <p class="text-muted small mb-0">
+                    มีบัญชีสมาชิกอยู่แล้ว? 
+                    <a href="login.php" class="text-warning fw-bold text-decoration-none ms-1">
+                      เข้าสู่ระบบที่นี่ <i class="fa-solid fa-arrow-right small"></i>
+                    </a>
+                  </p>
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       6. FOOTER
+       ========================================================================== -->
+  <footer class="footer mt-auto">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-heading">
+            <i class="fa-solid fa-paw text-warning me-2"></i>สุนัขเลี้ยงดอทคอม
+          </h5>
+          <p class="small text-secondary">
+            ศูนย์รวมความรู้สำหรับคนรักสุนัข แนะนำสายพันธุ์ การเลี้ยงดู และการดูแลสุขภาพอย่างถูกวิธี
+          </p>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-heading">เมนูหลัก (Navigation)</h5>
+          <ul class="list-unstyled small d-flex flex-column gap-2">
+            <li><a href="index.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> หน้าแรก (Home)</a></li>
+            <li><a href="breeds.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> รวมสายพันธุ์ (All Breeds)</a></li>
+            <li><a href="groups.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> กลุ่มสายพันธุ์ (Breed Groups)</a></li>
+            <li><a href="quiz.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> ค้นหาสุนัขที่ใช่ (Dog Matcher)</a></li>
+            <li><a href="care.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> การดูแลและสุขภาพ (Care & Nutrition)</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> ติดต่อเรา (Contact Us)</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+          <h5 class="footer-heading">ติดต่อสอบถาม</h5>
+          <p class="small text-secondary mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i> มหาวิทยาลัยมหาสารคาม</p>
+          <p class="small text-secondary mb-2"><i class="fa-solid fa-phone me-2 text-warning"></i> 02-123-4567, 089-999-8888</p>
+          <p class="small text-secondary mb-3"><i class="fa-solid fa-envelope me-2 text-warning"></i> contact@msu.ac.th</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom text-center text-secondary">
+        <p class="mb-0">© 2026 สุนัขเลี้ยงดอทคอม. All rights reserved. พัฒนาด้วย HTML, Bootstrap และ JavaScript</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       7. SCRIPTS (Bootstrap 5 Bundle & Form Validation Script)
+       ========================================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // สคริปต์ตรวจความถูกต้องของข้อมูล (Bootstrap 5 Validation)
+    (() => {
+      'use strict';
+
+      const form = document.getElementById('registerForm');
+      const phoneInput = document.getElementById('phone');
+      const emailInput = document.getElementById('email');
+      const phoneFeedback = document.getElementById('phoneFeedback');
+      const emailFeedback = document.getElementById('emailFeedback');
+      const genderInputs = document.querySelectorAll('input[name="gender"]');
+      const genderFeedback = document.getElementById('genderFeedback');
+
+      const defaultPhoneFeedback = 'กรุณากรอกเบอร์โทรศัพท์เป็นตัวเลข 9-10 หลัก';
+      const defaultEmailFeedback = 'กรุณากรอกรูปแบบอีเมลที่ถูกต้อง (เช่น yourname@domain.com)';
+
+      // ฟังก์ชันตรวจสอบข้อมูลซ้ำผ่าน AJAX API
+      async function checkDuplicate(field, value, inputEl, feedbackEl, defaultMsg) {
+        if (!value) return true;
+        try {
+          const res = await fetch(`check_duplicate.php?field=${field}&value=${encodeURIComponent(value)}`);
+          const data = await res.json();
+          if (data.exists) {
+            inputEl.setCustomValidity(data.message);
+            feedbackEl.textContent = data.message;
+            inputEl.classList.add('is-invalid');
+            return false;
+          } else {
+            inputEl.setCustomValidity('');
+            feedbackEl.textContent = defaultMsg;
+            inputEl.classList.remove('is-invalid');
+            return true;
+          }
+        } catch (err) {
+          console.warn('Duplicate check failed:', err);
+          return true;
+        }
+      }
+
+      // ตรวจสอบแบบ Real-time เมื่อผู้ใช้กรอกหรือออกจากช่อง (blur / input)
+      emailInput.addEventListener('blur', () => {
+        if (emailInput.validity.typeMismatch) {
+          emailFeedback.textContent = defaultEmailFeedback;
+        } else {
+          checkDuplicate('email', emailInput.value.trim(), emailInput, emailFeedback, defaultEmailFeedback);
+        }
+      });
+
+      emailInput.addEventListener('input', () => {
+        emailInput.setCustomValidity('');
+        emailFeedback.textContent = defaultEmailFeedback;
+        emailInput.classList.remove('is-invalid');
+      });
+
+      phoneInput.addEventListener('blur', () => {
+        if (phoneInput.validity.patternMismatch) {
+          phoneFeedback.textContent = defaultPhoneFeedback;
+        } else {
+          checkDuplicate('phone', phoneInput.value.trim(), phoneInput, phoneFeedback, defaultPhoneFeedback);
+        }
+      });
+
+      phoneInput.addEventListener('input', () => {
+        phoneInput.setCustomValidity('');
+        phoneFeedback.textContent = defaultPhoneFeedback;
+        phoneInput.classList.remove('is-invalid');
+      });
+
+      // ตรวจสอบก่อนส่งฟอร์ม (Form Submit)
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        // ตรวจสอบตัวเลือกเพศ
+        const isGenderSelected = Array.from(genderInputs).some(r => r.checked);
+        if (!isGenderSelected) {
+          genderFeedback.classList.remove('d-none');
+          genderFeedback.classList.add('d-block');
+        } else {
+          genderFeedback.classList.remove('d-block');
+          genderFeedback.classList.add('d-none');
+        }
+
+        // ตรวจสอบความถูกต้องเบื้องต้นตาม HTML5
+        if (!form.checkValidity() || !isGenderSelected) {
+          form.classList.add('was-validated');
+          return;
+        }
+
+        // ตรวจสอบข้อมูลซ้ำแบบ async อีกครั้งก่อนส่ง
+        const emailValid = await checkDuplicate('email', emailInput.value.trim(), emailInput, emailFeedback, defaultEmailFeedback);
+        const phoneValid = await checkDuplicate('phone', phoneInput.value.trim(), phoneInput, phoneFeedback, defaultPhoneFeedback);
+
+        if (!emailValid || !phoneValid) {
+          form.classList.add('was-validated');
+          return;
+        }
+
+        // ผ่านการตรวจสอบทั้งหมด ส่งฟอร์มไปยัง information.php
+        form.submit();
+      }, false);
+
+      // ซ่อนแจ้งเตือนเตือนเพศเมื่อมีการกดเลือก
+      genderInputs.forEach(input => {
+        input.addEventListener('change', () => {
+          genderFeedback.classList.remove('d-block');
+          genderFeedback.classList.add('d-none');
+        });
+      });
+
+      // ซ่อนข้อความสำเร็จเมื่อกด Reset
+      form.addEventListener('reset', () => {
+        form.classList.remove('was-validated');
+        genderFeedback.classList.remove('d-block');
+        genderFeedback.classList.add('d-none');
+        emailInput.setCustomValidity('');
+        phoneInput.setCustomValidity('');
+        emailInput.classList.remove('is-invalid');
+        phoneInput.classList.remove('is-invalid');
+        emailFeedback.textContent = defaultEmailFeedback;
+        phoneFeedback.textContent = defaultPhoneFeedback;
+      });
+    })();
+  </script>
+</body>
+</html>
+

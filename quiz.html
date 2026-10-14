@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <!-- ==========================================================================
+       1. META TAGS & TITLE
+       ========================================================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ค้นหาสุนัขที่เหมาะกับคุณ (Dog Matcher / Quiz) - สุนัขเลี้ยงดอทคอม</title>
+
+  <!-- ==========================================================================
+       2. EXTERNAL CSS & FONTS
+       ========================================================================== -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       3. NAVIGATION BAR (แถบเมนูนำทางหลักทั้ง 6 หน้า)
+       ========================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="brand-icon"><i class="fa-solid fa-paw"></i></span>
+        <span>สุนัขเลี้ยงดอทคอม</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="สลับแถบเมนู">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
+          <!-- เมนูที่ 1: หน้าแรก -->
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="fa-solid fa-house me-1"></i> หน้าแรก
+            </a>
+          </li>
+          <!-- เมนูที่ 2: หน้ารวมสายพันธุ์สุนัข -->
+          <li class="nav-item">
+            <a class="nav-link" href="breeds.html">
+              <i class="fa-solid fa-dog me-1"></i> รวมสายพันธุ์
+            </a>
+          </li>
+          <!-- เมนูที่ 3: หน้าหมวดหมู่/กลุ่มสุนัข -->
+          <li class="nav-item">
+            <a class="nav-link" href="groups.html">
+              <i class="fa-solid fa-layer-group me-1"></i> กลุ่มสายพันธุ์
+            </a>
+          </li>
+          <!-- เมนูที่ 4: หน้าค้นหาสุนัขที่เหมาะกับคุณ (Active ที่หน้านี้) -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="quiz.html">
+              <i class="fa-solid fa-wand-magic-sparkles me-1"></i> ค้นหาสุนัขที่ใช่
+            </a>
+          </li>
+          <!-- เมนูที่ 5: หน้าคู่มือการดูแลสุขภาพและโภชนาการ -->
+          <li class="nav-item">
+            <a class="nav-link" href="care.html">
+              <i class="fa-solid fa-heart-pulse me-1"></i> การดูแลและสุขภาพ
+            </a>
+          </li>
+          <!-- เมนูที่ 6: หน้าติดต่อเรา / แบบฟอร์มสอบถาม -->
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">
+              <i class="fa-solid fa-envelope me-1"></i> ติดต่อเรา
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       4. PAGE HEADER BANNER (แบนเนอร์หัวหน้าเว็บ)
+       ========================================================================== -->
+  <header class="page-header-banner">
+    <div class="container text-center">
+      <span class="badge bg-warning text-dark rounded-pill mb-2">
+        <i class="fa-solid fa-wand-magic-sparkles me-1"></i> Interactive Dog Matcher & Quiz
+      </span>
+      <h1 class="fw-bold mb-2">ค้นหาสุนัขที่เหมาะกับไลฟ์สไตล์คุณ</h1>
+      <p class="text-secondary mb-3">ตอบคำถาม 5 ข้อง่ายๆ เพื่อคำนวณคะแนนความเข้ากันได้จากฐานข้อมูลสุนัขครบทั้ง 30 สายพันธุ์</p>
+      
+      <div class="d-flex flex-wrap justify-content-center gap-2 mt-2">
+        <a href="#quizFormCard" class="btn btn-warning btn-sm shadow-sm px-3">
+          <i class="fa-solid fa-clipboard-question me-1"></i> ทำแบบทดสอบค้นหาสายพันธุ์
+        </a>
+        <a href="#lifestyleDirectorySection" class="btn btn-outline-dark btn-sm px-3">
+          <i class="fa-solid fa-border-all me-1"></i> เลือกดูสุนัขทั้งหมดตามไลฟ์สไตล์ (30 สายพันธุ์)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       5. QUIZ FORM & RESULT SECTION (แบบทดสอบและผลลัพธ์การจับคู่สายพันธุ์)
+       ========================================================================== -->
+  <main class="section-padding py-5">
+    <div class="container">
+      
+      <!-- การ์ดแบบฟอร์มคำถาม 5 ข้อ -->
+      <div class="row justify-content-center">
+        <div class="col-lg-9 col-xl-8">
+          <div class="card custom-card p-4 p-md-5 mb-5 shadow-sm" id="quizFormCard">
+            <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+              <div class="bg-warning-subtle text-warning p-3 rounded-circle me-3 fs-3">
+                <i class="fa-solid fa-clipboard-question"></i>
+              </div>
+              <div>
+                <h3 class="fw-bold mb-0">แบบทดสอบวิเคราะห์ความเข้ากันได้</h3>
+                <p class="text-muted small mb-0">ประเมินจากพื้นที่ เวลา ประสบการณ์ และเป้าหมายของคุณ</p>
+              </div>
+            </div>
+
+            <form id="dogQuizForm">
+
+              <!-- คำถามข้อที่ 1: พื้นที่อยู่อาศัย -->
+              <div class="mb-4 pb-3 border-bottom">
+                <label class="form-label fw-bold fs-5 text-dark mb-2">
+                  <i class="fa-solid fa-building-user text-warning me-2"></i>1. รูปแบบที่พักอาศัยของคุณในปัจจุบันเป็นอย่างไร?
+                </label>
+                <div class="d-flex flex-column gap-2 mt-2">
+                  <div class="form-check p-3 border rounded-3 bg-light-subtle">
+                    <input class="form-check-input" type="radio" name="q1" id="q1_1" value="condo" required checked>
+                    <label class="form-check-label w-100" for="q1_1">
+                      <strong>คอนโดมิเนียม หรือ อพาร์ตเมนต์</strong>
+                      <div class="small text-muted">พื้นที่จำกัด มีระเบียง และมีข้อจำกัดเรื่องเสียงเห่ารบกวนเพื่อนบ้าน</div>
+                    </label>
+                  </div>
+                  <div class="form-check p-3 border rounded-3 bg-light-subtle">
+                    <input class="form-check-input" type="radio" name="q1" id="q1_2" value="townhome">
+                    <label class="form-check-label w-100" for="q1_2">
+                      <strong>ทาวน์โฮม หรือ อาคารพาณิชย์</strong>
+                      <div class="small text-muted">มีพื้นที่ระดับปานกลาง ลานหน้าบ้าน หรือลานซักล้างพอให้ขยับตัว</div>
+                    </label>
+                  </div>
+                  <div class="form-check p-3 border rounded-3 bg-light-subtle">
+                    <input class="form-check-input" type="radio" name="q1" id="q1_3" value="house">
+                    <label class="form-check-label w-100" for="q1_3">
+                      <strong>บ้านเดี่ยว มีสนามหญ้าและรั้วรอบขอบชิด</strong>
+                      <div class="small text-muted">มีพื้นที่กว้างขวาง สุนัขสามารถวิ่งเล่นและปลดปล่อยพลังงานได้อย่างอิสระ</div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- คำถามข้อที่ 2: เวลาและพลังงานในการออกกำลังกาย -->
+              <div class="mb-4 pb-3 border-bottom">
+                <label class="form-label fw-bold fs-5 text-dark mb-2">
+                  <i class="fa-solid fa-person-running text-warning me-2"></i>2. คุณมีเวลาว่างพาสุนัขไปเดินเล่นหรือออกกำลังกายมากน้อยเพียงใด?
+                </label>
+                <div class="d-flex flex-column gap-2 mt-2">
+                  <div class="form-check p-3 border rounded-3 bg-light-subtle">
+                    <input class="form-check-input" type="radio" name="q2" id="q2_1" value="low" required>
+                    <label class="form-check-label w-100" for="q2_1">
+                      <strong>น้อยกว่า 30 นาทีต่อวัน (พลังงานต่ำ - ชิลในบ้าน)</strong>
+                      <div class="small text-muted">ชอบพักผ่อนในบ้านเป็นหลัก เน้นเดินเล่นเบาๆ หรือเล่นในห้อง</div>
+                    </label>
+                  </div>
+                  <div class="form-check p-3 border rounded-3 bg-light-subtle">
+                    <input class="form-check-input" type="radio" name="q2" id="q2_2" value="medium" checked>
+                    <label class="form-check-label w-100" for="q2_2">
+                      <strong>ประมาณ 30 - 60 นาทีต่อวัน (พลังงานปานกลาง)</strong>
+                      <div class="small text-muted">พาเดินเล่นรอบหมู่บ้าน สวนสาธารณะ หรือเล่นโยนบอลวันละ 1-2 ครั้ง</div>
+                    </label>
+                  </div>
+                  <div class="form-check p-3 border rounded-3 bg-light-subtle">
+                    <input class="form-check-input" type="radio" name="q2" id="q2_3" value="high">
+                    <label class="form-check-label w-100" for="q2_3">
+                      <strong>มากกว่า 1 - 2 ชั่วโมงต่อวัน (พลังงานสูง - สายลุย)</strong>
+                      <div class="small text-muted">ชอบวิ่ง วิ่งเทรล ปั่นจักรยาน หรือทำกิจกรรมแอคทีฟกลางแจ้งสม่ำเสมอ</div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- คำถามข้อที่ 3: ประสบการณ์ของผู้เลี้ยง -->
+              <div class="mb-4 pb-3 border-bottom">
+                <label class="form-label fw-bold fs-5 text-dark mb-2">
+                  <i class="fa-solid fa-graduation-cap text-warning me-2"></i>3. ประสบการณ์ในการเลี้ยงและฝึกวินัยสุนัขของคุณ?
+                </label>
+                <div class="d-flex flex-column gap-2 mt-2">
+                  <div class="form-check p-3 border rounded-3 bg-light-subtle">
+                    <input class="form-check-input" type="radio" name="q3" id="q3_1" value="beginner" required checked>
+                    <label class="form-check-label w-100" for="q3_1">
+                      <strong>มือใหม่ เพิ่งเริ่มต้นเลี้ยงตัวแรก (Beginner)</strong>
+                      <div class="small text-muted">ต้องการสุนัขที่เลี้ยงง่าย นิสัยอ่อนโยน เป็นมิตร และไม่ดื้อจนเกินไป</div>
+                    </label>
+                  </div>
+                  <div class="form-check p-3 border rounded-3 bg-light-subtle">
+                    <input class="form-check-input" type="radio" name="q3" id="q3_2" value="experienced">
+                    <label class="form-check-label w-100" for="q3_2">
+                      <strong>เคยเลี้ยงมาบ้าง (Intermediate)</strong>
+                      <div class="small text-muted">เข้าใจพฤติกรรมพื้นฐาน ฝึกคำสั่งเบื้องต้นได้ และพร้อมจัดการกิจวัตร</div>
+                    </label>
+                  </div>
+                  <div class="form-check p-3 border rounded-3 bg-light-subtle">
+                    <input class="form-check-input" type="radio" name="q3" id="q3_3" value="expert">
+                    <label class="form-check-label w-100" for="q3_3">
+                      <strong>มีประสบการณ์สูง ชำนาญการฝึก (Expert)</strong>
+                      <div class="small text-muted">พร้อมรับมือกับสายพันธุ์พลังงานล้น สุนัขทำงาน หรือสุนัขที่มีสัญชาตญาณอารักขาสูง</div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- คำถามข้อที่ 4: การดูแลขนและกรูมมิ่ง -->
+              <div class="mb-4 pb-3 border-bottom">
+                <label class="form-label fw-bold fs-5 text-dark mb-2">
+                  <i class="fa-solid fa-scissors text-warning me-2"></i>4. ความพร้อมในการดูแลขนและการกรูมมิ่ง (Grooming)?
+                </label>
+                <div class="d-flex flex-column gap-2 mt-2">
+                  <div class="form-check p-3 border rounded-3 bg-light-subtle">
+                    <input class="form-check-input" type="radio" name="q4" id="q4_1" value="low_groom" required checked>
+                    <label class="form-check-label w-100" for="q4_1">
+                      <strong>ต้องการขนสั้น ดูแลง่าย (Low Maintenance)</strong>
+                      <div class="small text-muted">อาบน้ำเป่าขนแห้งไว ขนไม่ร่วงเยอะ ไม่จำเป็นต้องไปร้านกรูมมิ่งบ่อย</div>
+                    </label>
+                  </div>
+                  <div class="form-check p-3 border rounded-3 bg-light-subtle">
+                    <input class="form-check-input" type="radio" name="q4" id="q4_2" value="high_groom">
+                    <label class="form-check-label w-100" for="q4_2">
+                      <strong>ชอบสุนัขขนยาวฟูสวยงาม (High Maintenance)</strong>
+                      <div class="small text-muted">พร้อมแปรงขนทุกวัน รักษาความสะอาด และพาไปตัดแต่งขนเป็นประจำ</div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- คำถามข้อที่ 5: เป้าหมายและบุคลิกสุนัขที่ตามหา -->
+              <div class="mb-4 pb-3">
+                <label class="form-label fw-bold fs-5 text-dark mb-2">
+                  <i class="fa-solid fa-heart text-warning me-2"></i>5. เป้าหมายหลักและลักษณะนิสัยที่คุณตามหามากที่สุด?
+                </label>
+                <div class="d-flex flex-column gap-2 mt-2">
+                  <div class="form-check p-3 border rounded-3 bg-light-subtle">
+                    <input class="form-check-input" type="radio" name="q5" id="q5_1" value="companion" required checked>
+                    <label class="form-check-label w-100" for="q5_1">
+                      <strong>เพื่อนรู้ใจตัวเล็ก / ขี้อ้อน (Companion & Lapdog)</strong>
+                      <div class="small text-muted">ชอบนอนข้างๆ กอดได้ พกพาสะดวก ไม่ส่งเสียงรบกวน ช่วยคลายเหงา</div>
+                    </label>
+                  </div>
+                  <div class="form-check p-3 border rounded-3 bg-light-subtle">
+                    <input class="form-check-input" type="radio" name="q5" id="q5_2" value="family">
+                    <label class="form-check-label w-100" for="q5_2">
+                      <strong>สุนัขครอบครัวแสนใจดี (Family & Kids Friendly)</strong>
+                      <div class="small text-muted">เข้ากับเด็กๆ และสัตว์เลี้ยงอื่นได้ดี ใจเย็น อารมณ์ดี และเป็นมิตรกับทุกคน</div>
+                    </label>
+                  </div>
+                  <div class="form-check p-3 border rounded-3 bg-light-subtle">
+                    <input class="form-check-input" type="radio" name="q5" id="q5_3" value="active">
+                    <label class="form-check-label w-100" for="q5_3">
+                      <strong>คู่หูทำกิจกรรมสายลุย (Athletic & Sporty)</strong>
+                      <div class="small text-muted">ปราดเปรียว ว่องไว ชอบวิ่งเล่น คาบของ ว่ายน้ำ พร้อมลุยทุกสถานการณ์</div>
+                    </label>
+                  </div>
+                  <div class="form-check p-3 border rounded-3 bg-light-subtle">
+                    <input class="form-check-input" type="radio" name="q5" id="q5_4" value="guard">
+                    <label class="form-check-label w-100" for="q5_4">
+                      <strong>สุนัขเฝ้าบ้านและอารักขา (Guard & Protector)</strong>
+                      <div class="small text-muted">ซื่อสัตย์ หวงแหนอาณาเขต มีสัญชาตญาณระวังภัย และปกป้องครอบครัวได้อย่างมั่นใจ</div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ปุ่มส่งคำตอบประมวลผล -->
+              <div class="text-center pt-3 d-flex flex-wrap justify-content-center gap-3">
+                <button type="submit" class="btn btn-primary-custom btn-lg px-5 shadow-sm">
+                  <i class="fa-solid fa-wand-magic-sparkles me-2"></i> ค้นหาสายพันธุ์ที่เหมาะกับคุณ
+                </button>
+                <button type="button" id="formResetQuickBtn" class="btn btn-outline-secondary px-4">
+                  <i class="fa-solid fa-rotate-left me-1"></i> ล้างคำตอบ
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           6. DYNAMIC QUIZ RESULT SECTION (ส่วนแสดงผลลัพธ์คำแนะนำสายพันธุ์)
+           ซ่อนอยู่ตอนแรก (d-none) และจะแสดงผลเมื่อคลิกปุ่มส่งแบบทดสอบ
+           ====================================================================== -->
+      <div id="quizResultSection" class="d-none mb-5">
+        <div class="card border-warning bg-white p-4 p-md-5 rounded-4 shadow-sm" id="resultCardWrapper">
+          
+          <!-- หัวข้อผลลัพธ์ -->
+          <div class="text-center mb-4 pb-3 border-bottom">
+            <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fs-6 mb-2">
+              <i class="fa-solid fa-trophy me-1"></i> Match Found! ผลการจับคู่ของคุณ
+            </span>
+            <h2 class="fw-bold text-dark mb-1">สายพันธุ์สุนัขที่เหมาะกับไลฟ์สไตล์คุณที่สุด</h2>
+            <p class="text-muted mb-3" id="quizResultSummaryCriteria">
+              ระบบประมวลผลจากคำตอบทั้ง 5 ข้อ เปรียบเทียบกับฐานข้อมูลสุนัขทั้ง 30 สายพันธุ์
+            </p>
+          </div>
+
+          <!-- กล่องอันดับที่ 1 (Best Match Spotlight) -->
+          <div id="bestMatchSpotlight" class="mb-5">
+            <!-- Rendered dynamically by main.js -->
+          </div>
+
+          <!-- กล่องอันดับที่ 2 และ 3 (Runner-Up Matches) -->
+          <div class="mb-4">
+            <h4 class="fw-bold text-dark mb-3">
+              <i class="fa-solid fa-medal text-warning me-2"></i>สายพันธุ์แนะนำเพิ่มเติมที่เข้ากับคุณ
+            </h4>
+            <div class="row g-4" id="runnerUpMatchesRow">
+              <!-- Rendered dynamically by main.js -->
+            </div>
+          </div>
+
+          <!-- กล่องสายพันธุ์อื่นๆ ที่เข้าเกณฑ์ (Other Compatible Matches) -->
+          <div class="mt-4 pt-3 border-top">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+              <h5 class="fw-bold text-secondary mb-0">
+                <i class="fa-solid fa-list-check me-2 text-primary"></i>สายพันธุ์อื่นๆ ที่มีคะแนนความเข้ากันได้สูง
+              </h5>
+              <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#otherMatchesCollapse" aria-expanded="false" aria-controls="otherMatchesCollapse">
+                <i class="fa-solid fa-chevron-down me-1"></i> แสดง/ซ่อนสายพันธุ์เพิ่มเติม
+              </button>
+            </div>
+
+            <div class="collapse" id="otherMatchesCollapse">
+              <div class="row g-3" id="otherMatchesRow">
+                <!-- Rendered dynamically by main.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- ปุ่ม Action ท้ายผลลัพธ์ -->
+          <div class="mt-5 pt-3 border-top d-flex flex-wrap justify-content-center gap-3">
+            <a href="breeds.html" class="btn btn-warning px-4 shadow-sm">
+              <i class="fa-solid fa-dog me-2"></i> ดูข้อมูลทั้งหมดในหน้ารวมสายพันธุ์ (breeds.html)
+            </a>
+            <a href="groups.html" class="btn btn-outline-dark px-4">
+              <i class="fa-solid fa-layer-group me-2"></i> ดูกลุ่มสายพันธุ์ (groups.html)
+            </a>
+            <button type="button" id="resetQuizBtn" class="btn btn-outline-secondary px-4">
+              <i class="fa-solid fa-rotate-left me-1"></i> ทำแบบทดสอบใหม่
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           7. ALL 30 BREEDS LIFESTYLE DIRECTORY (เลือกดูสุนัขตามไลฟ์สไตล์โดยตรง)
+           มีข้อมูลสุนัขครบทั้ง 30 สายพันธุ์ ให้ผู้ใช้เลือกดูตามความต้องการ
+           ====================================================================== -->
+      <section id="lifestyleDirectorySection" class="mt-5 pt-4 border-top">
+        <div class="text-center mb-4">
+          <span class="badge bg-secondary text-white rounded-pill mb-2 px-3 py-1">
+            <i class="fa-solid fa-paw me-1"></i> Complete 30 Dog Breeds Catalog
+          </span>
+          <h2 class="fw-bold text-dark mb-2">หรือเลือกดูสุนัขตามคุณลักษณะที่เหมาะกับคุณโดยตรง</h2>
+          <p class="text-secondary mb-0">คลิกเลือกไลฟ์สไตล์เพื่อคัดกรองสายพันธุ์ที่ตรงกับความต้องการของคุณทันที</p>
+        </div>
+
+        <!-- ตัวกรองตามไลฟ์สไตล์ (Lifestyle Filter Buttons) -->
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4" id="lifestyleFilterBtnsContainer">
+          <button type="button" class="btn btn-warning lifestyle-filter-btn active" data-filter="all">
+            <i class="fa-solid fa-border-all me-1"></i> ทั้งหมด (30 สายพันธุ์)
+          </button>
+          <button type="button" class="btn btn-outline-secondary lifestyle-filter-btn" data-filter="condo">
+            <i class="fa-solid fa-building me-1"></i> เหมาะกับคอนโด / พื้นที่จำกัด
+          </button>
+          <button type="button" class="btn btn-outline-secondary lifestyle-filter-btn" data-filter="family">
+            <i class="fa-solid fa-child-reaching me-1"></i> สุนัขครอบครัว / รักเด็ก
+          </button>
+          <button type="button" class="btn btn-outline-secondary lifestyle-filter-btn" data-filter="beginner">
+            <i class="fa-solid fa-graduation-cap me-1"></i> มือใหม่เลี้ยงง่าย
+          </button>
+          <button type="button" class="btn btn-outline-secondary lifestyle-filter-btn" data-filter="low_groom">
+            <i class="fa-solid fa-bath me-1"></i> ขนสั้นดูแลง่าย
+          </button>
+          <button type="button" class="btn btn-outline-secondary lifestyle-filter-btn" data-filter="guard">
+            <i class="fa-solid fa-shield-halved me-1"></i> สุนัขเฝ้าบ้าน / อารักขา
+          </button>
+          <button type="button" class="btn btn-outline-secondary lifestyle-filter-btn" data-filter="active">
+            <i class="fa-solid fa-bolt me-1"></i> พลังงานสูง / สายลุย
+          </button>
+        </div>
+
+        <!-- สรุปจำนวนสายพันธุ์ที่แสดง -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted small" id="lifestyleFilterStatus">
+            แสดงครบทั้ง 30 สายพันธุ์
+          </span>
+          <a href="breeds.html" class="small text-decoration-none text-warning fw-semibold">
+            ดูตารางเปรียบเทียบในหน้ารวมสายพันธุ์ <i class="fa-solid fa-arrow-right ms-1"></i>
+          </a>
+        </div>
+
+        <!-- แถวแสดงการ์ดสุนัขทั้ง 30 สายพันธุ์ (30 Breeds Cards Grid) -->
+        <div class="row g-4" id="lifestyleBreedsGrid">
+          <!-- Rendered dynamically and completely by main.js with all 30 dogs -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       7. FOOTER SECTION (ส่วนท้ายเว็บไซต์)
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-heading">
+            <i class="fa-solid fa-paw text-warning me-2"></i>สุนัขเลี้ยงดอทคอม
+          </h5>
+          <p class="small text-secondary">
+            ศูนย์รวมข้อมูลสุนัขครบวงจร ช่วยให้คุณศึกษาและทำความเข้าใจสายพันธุ์สุนัขก่อนตัดสินใจเลี้ยงดู
+          </p>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-heading">เมนูหลัก (Navigation)</h5>
+          <ul class="list-unstyled small d-flex flex-column gap-2">
+            <li><a href="index.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> หน้าแรก (Home)</a></li>
+            <li><a href="breeds.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> รวมสายพันธุ์ (All Breeds)</a></li>
+            <li><a href="groups.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> กลุ่มสายพันธุ์ (Breed Groups)</a></li>
+            <li><a href="quiz.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> ค้นหาสุนัขที่ใช่ (Dog Matcher)</a></li>
+            <li><a href="care.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> การดูแลและสุขภาพ (Care & Nutrition)</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> ติดต่อเรา (Contact Us)</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+          <h5 class="footer-heading">ติดต่อสอบถาม</h5>
+          <p class="small text-secondary mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i> กรุงเทพมหานคร ประเทศไทย</p>
+          <p class="small text-secondary mb-2"><i class="fa-solid fa-phone me-2 text-warning"></i> 02-123-4567</p>
+          <p class="small text-secondary mb-3"><i class="fa-solid fa-envelope me-2 text-warning"></i> contact@msu.ac.th</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom text-center text-secondary">
+        <p class="mb-0">© 2026 สุนัขเลี้ยงดอทคอม. All rights reserved. พัฒนาด้วย HTML, Bootstrap และ JavaScript</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       8. SCRIPTS
+       ========================================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+

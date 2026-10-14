@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <!-- ==========================================================================
+       1. META TAGS & TITLE
+       ========================================================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>หมวดหมู่และกลุ่มสุนัข (Canine Breed Groups) - DogPedia</title>
+
+  <!-- ==========================================================================
+       2. EXTERNAL CSS & FONTS
+       ========================================================================== -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       3. NAVIGATION BAR (แถบเมนูนำทางหลักทั้ง 6 หน้า)
+       ========================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="brand-icon"><i class="fa-solid fa-paw"></i></span>
+        <span>สุนัขเลี้ยงดอทคอม</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="สลับแถบเมนู">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
+          <!-- เมนูที่ 1: หน้าแรก -->
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="fa-solid fa-house me-1"></i> หน้าแรก
+            </a>
+          </li>
+          <!-- เมนูที่ 2: หน้ารวมสายพันธุ์สุนัข -->
+          <li class="nav-item">
+            <a class="nav-link" href="breeds.html">
+              <i class="fa-solid fa-dog me-1"></i> รวมสายพันธุ์
+            </a>
+          </li>
+          <!-- เมนูที่ 3: หน้าหมวดหมู่/กลุ่มสุนัข (Active ที่หน้านี้) -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="groups.html">
+              <i class="fa-solid fa-layer-group me-1"></i> กลุ่มสายพันธุ์
+            </a>
+          </li>
+          <!-- เมนูที่ 4: หน้าค้นหาสุนัขที่เหมาะกับคุณ -->
+          <li class="nav-item">
+            <a class="nav-link" href="quiz.html">
+              <i class="fa-solid fa-wand-magic-sparkles me-1"></i> ค้นหาสุนัขที่ใช่
+            </a>
+          </li>
+          <!-- เมนูที่ 5: หน้าคู่มือการดูแลสุขภาพและโภชนาการ -->
+          <li class="nav-item">
+            <a class="nav-link" href="care.html">
+              <i class="fa-solid fa-heart-pulse me-1"></i> การดูแลและสุขภาพ
+            </a>
+          </li>
+          <!-- เมนูที่ 6: หน้าติดต่อเรา / แบบฟอร์มสอบถาม -->
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">
+              <i class="fa-solid fa-envelope me-1"></i> ติดต่อเรา
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       4. PAGE HEADER BANNER (แบนเนอร์หัวหน้าเว็บ)
+       ========================================================================== -->
+  <header class="page-header-banner">
+    <div class="container text-center">
+      <span class="badge bg-warning text-dark rounded-pill mb-2">
+        <i class="fa-solid fa-layer-group me-1"></i> 7 Canine Classifications (30 Breeds)
+      </span>
+      <h1 class="fw-bold mb-2">หมวดหมู่และกลุ่มสุนัขสากล</h1>
+      <p class="text-secondary mb-3 max-w-700 mx-auto">
+        จัดกลุ่มสุนัขทั้ง 30 สายพันธุ์ ตามมาตรฐานสากล 7 กลุ่มสายพันธุ์ ช่วยให้คุณเลือกสุนัขที่มีสัญชาตญาณ ระดับพลังงาน และนิสัยที่เข้ากับวิถีชีวิตของคุณมากที่สุด
+      </p>
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+        <a href="#groupsOverview" class="btn btn-sm btn-outline-dark rounded-pill px-3">
+          <i class="fa-solid fa-book-open me-1"></i> ทำความรู้จัก 7 กลุ่ม
+        </a>
+        <a href="#groupsExplorer" class="btn btn-sm btn-warning text-dark rounded-pill px-3 fw-semibold">
+          <i class="fa-solid fa-filter me-1"></i> กดเลือกดูกลุ่มสุนัขทันที (Interactive)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       5. SECTION 1: 7 BREED GROUPS OVERVIEW (ภาพรวมและคำอธิบาย 7 กลุ่มสุนัข)
+       ========================================================================== -->
+  <section class="section-padding" id="groupsOverview">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="badge bg-warning-subtle text-dark border border-warning px-3 py-1 rounded-pill mb-2">
+          มาตรฐานสายพันธุ์สากล (AKC / FCI)
+        </span>
+        <h2 class="fw-bold section-title">ลักษณะเด่นของสุนัขทั้ง 7 กลุ่ม</h2>
+        <p class="text-muted">คลิกเพื่อดูสายพันธุ์ที่อยู่ในแต่ละกลุ่ม หรือกดเลือกดูการ์ดด้านล่าง</p>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- 1. Sporting Group -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card custom-card h-100 p-3 border-top border-4 border-warning">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="d-flex align-items-center">
+                  <div class="bg-warning-subtle text-warning p-3 rounded-circle me-3 fs-3">
+                    <i class="fa-solid fa-feather-pointed"></i>
+                  </div>
+                  <div>
+                    <h5 class="fw-bold mb-0">1. Sporting Group</h5>
+                    <span class="text-muted small">สุนัขล่าสัตว์และเก็บเหยื่อ</span>
+                  </div>
+                </div>
+                <span class="badge bg-warning text-dark rounded-pill">3 สายพันธุ์</span>
+              </div>
+              <p class="text-secondary small mb-3 flex-grow-1">
+                กลุ่มที่มีสัญชาตญาณในการหา ค้นหา ชี้เป้า หรือเก็บเหยื่อ (โดยเฉพาะนกน้ำ/สัตว์ปีก) เชี่ยวชาญทั้งบนบกและในน้ำ อ่อนโยน ฝึกง่าย รักการทำกิจกรรม
+              </p>
+              <div class="bg-light p-2 rounded-3 small mb-3">
+                <div class="fw-bold text-dark mb-1"><i class="fa-solid fa-paw text-warning me-1"></i>สมาชิกในกลุ่ม:</div>
+                <div class="d-flex flex-wrap gap-1">
+                  <span class="badge bg-white text-dark border">อิงลิช ค็อกเกอร์ สเปเนียล</span>
+                  <span class="badge bg-white text-dark border">โกลเด้น รีทรีฟเวอร์</span>
+                  <span class="badge bg-white text-dark border">ลาบราดอร์ รีทรีฟเวอร์</span>
+                </div>
+              </div>
+              <div class="d-grid gap-2">
+                <button type="button" class="btn btn-sm btn-outline-warning text-dark group-jump-btn" data-target-group="sporting">
+                  <i class="fa-solid fa-eye me-1"></i> ดูกลุ่มนี้ใน Explorer ด้านล่าง
+                </button>
+                <a href="breeds.html?group=sporting" class="btn btn-sm btn-light border text-secondary">
+                  <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> ดูในหน้ารวมสายพันธุ์
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Hound Group -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card custom-card h-100 p-3 border-top border-4 border-info">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="d-flex align-items-center">
+                  <div class="bg-info-subtle text-info p-3 rounded-circle me-3 fs-3">
+                    <i class="fa-solid fa-compass"></i>
+                  </div>
+                  <div>
+                    <h5 class="fw-bold mb-0">2. Hound Group</h5>
+                    <span class="text-muted small">สุนัขล่าสัตว์ดมกลิ่นและสายตา</span>
+                  </div>
+                </div>
+                <span class="badge bg-info text-white rounded-pill">3 สายพันธุ์</span>
+              </div>
+              <p class="text-secondary small mb-3 flex-grow-1">
+                กลุ่มที่พัฒนามาเพื่อตามล่าเหยื่อด้วยการดมกลิ่นตามรอย (Scenthound) หรือการมองเห็นและวิ่งไล่ล่า (Sighthound) มีความมุ่งมั่น ทรหด และเสียงเห่าหอนเป็นเอกลักษณ์
+              </p>
+              <div class="bg-light p-2 rounded-3 small mb-3">
+                <div class="fw-bold text-dark mb-1"><i class="fa-solid fa-paw text-info me-1"></i>สมาชิกในกลุ่ม:</div>
+                <div class="d-flex flex-wrap gap-1">
+                  <span class="badge bg-white text-dark border">ดัชชุน / หมาไส้กรอก</span>
+                  <span class="badge bg-white text-dark border">บีเกิ้ล</span>
+                  <span class="badge bg-white text-dark border">ไทยหลังอาน</span>
+                </div>
+              </div>
+              <div class="d-grid gap-2">
+                <button type="button" class="btn btn-sm btn-outline-info group-jump-btn" data-target-group="hound">
+                  <i class="fa-solid fa-eye me-1"></i> ดูกลุ่มนี้ใน Explorer ด้านล่าง
+                </button>
+                <a href="breeds.html?group=hound" class="btn btn-sm btn-light border text-secondary">
+                  <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> ดูในหน้ารวมสายพันธุ์
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Working Group -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card custom-card h-100 p-3 border-top border-4 border-danger">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="d-flex align-items-center">
+                  <div class="bg-danger-subtle text-danger p-3 rounded-circle me-3 fs-3">
+                    <i class="fa-solid fa-shield-halved"></i>
+                  </div>
+                  <div>
+                    <h5 class="fw-bold mb-0">3. Working Group</h5>
+                    <span class="text-muted small">สุนัขทำงานและอารักขา</span>
+                  </div>
+                </div>
+                <span class="badge bg-danger text-white rounded-pill">6 สายพันธุ์</span>
+              </div>
+              <p class="text-secondary small mb-3 flex-grow-1">
+                กลุ่มที่มีพละกำลัง ร่างกายแข็งแรง ใช้สำหรับงานลากเลื่อน เฝ้าสถานที่ อารักขา และงานกู้ภัย สุขุม ซื่อสัตย์ และมีความรับผิดชอบสูง
+              </p>
+              <div class="bg-light p-2 rounded-3 small mb-3">
+                <div class="fw-bold text-dark mb-1"><i class="fa-solid fa-paw text-danger me-1"></i>สมาชิกในกลุ่ม:</div>
+                <div class="d-flex flex-wrap gap-1">
+                  <span class="badge bg-white text-dark border">ร็อตไวเลอร์</span>
+                  <span class="badge bg-white text-dark border">โดเบอร์แมน พินเชอร์</span>
+                  <span class="badge bg-white text-dark border">เกรทเดน</span>
+                  <span class="badge bg-white text-dark border">ไซบีเรียน ฮัสกี้</span>
+                  <span class="badge bg-white text-dark border">อะแลสกัน มาลามิวต์</span>
+                  <span class="badge bg-white text-dark border">ซามอยด์</span>
+                </div>
+              </div>
+              <div class="d-grid gap-2">
+                <button type="button" class="btn btn-sm btn-outline-danger group-jump-btn" data-target-group="working">
+                  <i class="fa-solid fa-eye me-1"></i> ดูกลุ่มนี้ใน Explorer ด้านล่าง
+                </button>
+                <a href="breeds.html?group=working" class="btn btn-sm btn-light border text-secondary">
+                  <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> ดูในหน้ารวมสายพันธุ์
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Terrier Group -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card custom-card h-100 p-3 border-top border-4 border-success">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="d-flex align-items-center">
+                  <div class="bg-success-subtle text-success p-3 rounded-circle me-3 fs-3">
+                    <i class="fa-solid fa-bolt"></i>
+                  </div>
+                  <div>
+                    <h5 class="fw-bold mb-0">4. Terrier Group</h5>
+                    <span class="text-muted small">สุนัขเทอร์เรียร์</span>
+                  </div>
+                </div>
+                <span class="badge bg-success text-white rounded-pill">3 สายพันธุ์</span>
+              </div>
+              <p class="text-secondary small mb-3 flex-grow-1">
+                กลุ่มที่ขึ้นชื่อเรื่องความกล้าหาญ มุ่งมั่น ว่องไว แต่เดิมพัฒนามาเพื่อมุดโพรงและล่าสัตว์ฟันแทะ/สัตว์รังควาน มีพลังงานล้นเหลือและใจเด็ดเดี่ยว
+              </p>
+              <div class="bg-light p-2 rounded-3 small mb-3">
+                <div class="fw-bold text-dark mb-1"><i class="fa-solid fa-paw text-success me-1"></i>สมาชิกในกลุ่ม:</div>
+                <div class="d-flex flex-wrap gap-1">
+                  <span class="badge bg-white text-dark border">แจ็ครัสเซลล์ เทอร์เรียร์</span>
+                  <span class="badge bg-white text-dark border">มินิเจอร์ ชเนาเซอร์</span>
+                  <span class="badge bg-white text-dark border">บูลเทอร์เรียร์</span>
+                </div>
+              </div>
+              <div class="d-grid gap-2">
+                <button type="button" class="btn btn-sm btn-outline-success group-jump-btn" data-target-group="terrier">
+                  <i class="fa-solid fa-eye me-1"></i> ดูกลุ่มนี้ใน Explorer ด้านล่าง
+                </button>
+                <a href="breeds.html?group=terrier" class="btn btn-sm btn-light border text-secondary">
+                  <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> ดูในหน้ารวมสายพันธุ์
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Toy Group -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card custom-card h-100 p-3 border-top border-4 border-warning">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="d-flex align-items-center">
+                  <div class="bg-warning-subtle text-warning p-3 rounded-circle me-3 fs-3">
+                    <i class="fa-solid fa-heart"></i>
+                  </div>
+                  <div>
+                    <h5 class="fw-bold mb-0">5. Toy Group</h5>
+                    <span class="text-muted small">สุนัขพันธุ์จิ๋วเลี้ยงเป็นเพื่อน</span>
+                  </div>
+                </div>
+                <span class="badge bg-warning text-dark rounded-pill">7 สายพันธุ์</span>
+              </div>
+              <p class="text-secondary small mb-3 flex-grow-1">
+                กลุ่มสุนัขขนาดเล็กกะทัดรัด นิยมเลี้ยงไว้เป็นเพื่อนคู่ใจ พกพาง่าย ขี้อ้อน ช่างเอาใจ เหมาะสำหรับผู้เลี้ยงในคอนโดและครอบครัว
+              </p>
+              <div class="bg-light p-2 rounded-3 small mb-3">
+                <div class="fw-bold text-dark mb-1"><i class="fa-solid fa-paw text-warning me-1"></i>สมาชิกในกลุ่ม:</div>
+                <div class="d-flex flex-wrap gap-1">
+                  <span class="badge bg-white text-dark border">ปอมเมอเรเนียน</span>
+                  <span class="badge bg-white text-dark border">ชิวาวา</span>
+                  <span class="badge bg-white text-dark border">พุดเดิ้ล ทอย</span>
+                  <span class="badge bg-white text-dark border">ยอร์กเชียร์ เทอร์เรียร์</span>
+                  <span class="badge bg-white text-dark border">ชิสุ</span>
+                  <span class="badge bg-white text-dark border">ปั๊ก</span>
+                  <span class="badge bg-white text-dark border">มอลทีส</span>
+                </div>
+              </div>
+              <div class="d-grid gap-2">
+                <button type="button" class="btn btn-sm btn-outline-warning text-dark group-jump-btn" data-target-group="toy">
+                  <i class="fa-solid fa-eye me-1"></i> ดูกลุ่มนี้ใน Explorer ด้านล่าง
+                </button>
+                <a href="breeds.html?group=toy" class="btn btn-sm btn-light border text-secondary">
+                  <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> ดูในหน้ารวมสายพันธุ์
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Herding Group -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card custom-card h-100 p-3 border-top border-4 border-primary">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="d-flex align-items-center">
+                  <div class="bg-primary-subtle text-primary p-3 rounded-circle me-3 fs-3">
+                    <i class="fa-solid fa-share-nodes"></i>
+                  </div>
+                  <div>
+                    <h5 class="fw-bold mb-0">6. Herding Group</h5>
+                    <span class="text-muted small">สุนัขต้อนฝูงสัตว์</span>
+                  </div>
+                </div>
+                <span class="badge bg-primary text-white rounded-pill">4 สายพันธุ์</span>
+              </div>
+              <p class="text-secondary small mb-3 flex-grow-1">
+                กลุ่มที่มีสัญชาตญาณในการควบคุม ควบคุมทิศทาง และต้อนฝูงสัตว์ เช่น แกะหรือวัว ฉลาดเป็นเลิศ ฝึกง่ายมาก และตอบสนองต่อคำสั่งได้อย่างรวดเร็ว
+              </p>
+              <div class="bg-light p-2 rounded-3 small mb-3">
+                <div class="fw-bold text-dark mb-1"><i class="fa-solid fa-paw text-primary me-1"></i>สมาชิกในกลุ่ม:</div>
+                <div class="d-flex flex-wrap gap-1">
+                  <span class="badge bg-white text-dark border">พ็อมโบรค เวลช์ คอร์กี้</span>
+                  <span class="badge bg-white text-dark border">บอร์เดอร์ คอลลี่</span>
+                  <span class="badge bg-white text-dark border">เชทแลนด์ ชีพด็อก</span>
+                  <span class="badge bg-white text-dark border">เยอรมัน เชพเพิร์ด</span>
+                </div>
+              </div>
+              <div class="d-grid gap-2">
+                <button type="button" class="btn btn-sm btn-outline-primary group-jump-btn" data-target-group="herding">
+                  <i class="fa-solid fa-eye me-1"></i> ดูกลุ่มนี้ใน Explorer ด้านล่าง
+                </button>
+                <a href="breeds.html?group=herding" class="btn btn-sm btn-light border text-secondary">
+                  <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> ดูในหน้ารวมสายพันธุ์
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Non-Sporting Group -->
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="card custom-card h-100 p-3 border-top border-4 border-secondary">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="d-flex align-items-center">
+                  <div class="bg-secondary-subtle text-secondary p-3 rounded-circle me-3 fs-3">
+                    <i class="fa-solid fa-shapes"></i>
+                  </div>
+                  <div>
+                    <h5 class="fw-bold mb-0">7. Non-Sporting Group</h5>
+                    <span class="text-muted small">สุนัขเบ็ดเตล็ด / อเนกประสงค์</span>
+                  </div>
+                </div>
+                <span class="badge bg-secondary text-white rounded-pill">4 สายพันธุ์</span>
+              </div>
+              <p class="text-secondary small mb-3 flex-grow-1">
+                กลุ่มที่มีความหลากหลายทางด้านขนาด รูปร่าง และลักษณะนิสัย ส่วนใหญ่เป็นสุนัขเพื่อนคู่ใจหรือสุนัขเฝ้าบ้าน มีเอกลักษณ์เฉพาะตัวสูง
+              </p>
+              <div class="bg-light p-2 rounded-3 small mb-3">
+                <div class="fw-bold text-dark mb-1"><i class="fa-solid fa-paw text-secondary me-1"></i>สมาชิกในกลุ่ม:</div>
+                <div class="d-flex flex-wrap gap-1">
+                  <span class="badge bg-white text-dark border">เฟรนช์ บูลด็อก</span>
+                  <span class="badge bg-white text-dark border">อิงลิช บูลด็อก</span>
+                  <span class="badge bg-white text-dark border">ชิบะ อินุ</span>
+                  <span class="badge bg-white text-dark border">ไทยบางแก้ว</span>
+                </div>
+              </div>
+              <div class="d-grid gap-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary group-jump-btn" data-target-group="non-sporting">
+                  <i class="fa-solid fa-eye me-1"></i> ดูกลุ่มนี้ใน Explorer ด้านล่าง
+                </button>
+                <a href="breeds.html?group=non-sporting" class="btn btn-sm btn-light border text-secondary">
+                  <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> ดูในหน้ารวมสายพันธุ์
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. SECTION 2: INTERACTIVE CANINE GROUP EXPLORER (เจาะลึก 30 สายพันธุ์ตามกลุ่ม)
+       ========================================================================== -->
+  <section class="section-padding bg-white border-top border-bottom" id="groupsExplorer">
+    <div class="container">
+      <div class="text-center mb-4">
+        <span class="badge bg-primary text-white rounded-pill mb-2 px-3 py-1">
+          <i class="fa-solid fa-layer-group me-1"></i> Interactive Explorer
+        </span>
+        <h2 class="fw-bold section-title">กดเลือกดูกลุ่มสุนัขที่เข้ากันได้</h2>
+        <p class="text-secondary">คลิกเลือกกลุ่มด้านล่างเพื่อแสดงสุนัขในกลุ่มนั้นๆ ทันที (รวมครบ 30 สายพันธุ์)</p>
+      </div>
+
+      <!-- แถบปุ่มกดเลือกกลุ่ม (Quick Filter Pills) -->
+      <div class="d-flex flex-wrap justify-content-center gap-2 mb-4" id="explorerGroupButtons">
+        <button type="button" class="btn btn-warning explorer-btn active shadow-sm" data-group="all">
+          <i class="fa-solid fa-paw me-1"></i> ทั้งหมด (30 สายพันธุ์)
+        </button>
+        <button type="button" class="btn btn-outline-warning text-dark explorer-btn" data-group="sporting">
+          <i class="fa-solid fa-feather-pointed me-1"></i> Sporting (3)
+        </button>
+        <button type="button" class="btn btn-outline-warning text-dark explorer-btn" data-group="hound">
+          <i class="fa-solid fa-compass me-1"></i> Hound (3)
+        </button>
+        <button type="button" class="btn btn-outline-warning text-dark explorer-btn" data-group="working">
+          <i class="fa-solid fa-shield-halved me-1"></i> Working (6)
+        </button>
+        <button type="button" class="btn btn-outline-warning text-dark explorer-btn" data-group="terrier">
+          <i class="fa-solid fa-bolt me-1"></i> Terrier (3)
+        </button>
+        <button type="button" class="btn btn-outline-warning text-dark explorer-btn" data-group="toy">
+          <i class="fa-solid fa-heart me-1"></i> Toy (7)
+        </button>
+        <button type="button" class="btn btn-outline-warning text-dark explorer-btn" data-group="herding">
+          <i class="fa-solid fa-share-nodes me-1"></i> Herding (4)
+        </button>
+        <button type="button" class="btn btn-outline-warning text-dark explorer-btn" data-group="non-sporting">
+          <i class="fa-solid fa-shapes me-1"></i> Non-Sporting (4)
+        </button>
+      </div>
+
+      <!-- สรุปกลุ่มที่เลือก -->
+      <div class="alert alert-light border rounded-4 d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <div class="d-flex align-items-center">
+          <span class="fs-4 me-2 text-warning"><i class="fa-solid fa-circle-check"></i></span>
+          <div>
+            <strong id="explorerActiveGroupTitle">กลุ่มทั้งหมด (All Groups)</strong>
+            <div class="small text-muted" id="explorerActiveGroupDesc">แสดงสายพันธุ์สุนัขครบทั้ง 30 สายพันธุ์</div>
+          </div>
+        </div>
+        <span class="badge bg-dark rounded-pill px-3 py-2" id="explorerActiveCount">พบ 30 สายพันธุ์</span>
+      </div>
+
+      <!-- ตารางการ์ดสุนัขทั้ง 30 ตัว -->
+      <div class="row g-4" id="explorerBreedGrid">
+
+        <!-- ==================== 1. SPORTING GROUP (3) ==================== -->
+        <!-- โกลเด้น รีทรีฟเวอร์ -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="sporting">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Large breeds/Golden Retriever.jpg" class="card-img-top breed-card-img" alt="โกลเด้น รีทรีฟเวอร์" loading="lazy" onerror="this.src='images/breeds/golden-retriever.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">Sporting Group</span>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>10-12 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">โกลเด้น รีทรีฟเวอร์ (Golden Retriever)</h5>
+              <p class="card-text text-muted small">ใจดี อ่อนโยน เข้ากับเด็กได้ดี ฉลาดและฝึกง่าย ขวัญใจครอบครัว</p>
+              <a href="breeds.html?group=sporting" class="btn btn-sm btn-outline-warning text-dark w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ลาบราดอร์ รีทรีฟเวอร์ -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="sporting">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Large breeds/Labrador Retriever.jpg" class="card-img-top breed-card-img" alt="ลาบราดอร์ รีทรีฟเวอร์" loading="lazy" onerror="this.src='images/breeds/labrador-retriever.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">Sporting Group</span>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>10-12 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ลาบราดอร์ รีทรีฟเวอร์ (Labrador Retriever)</h5>
+              <p class="card-text text-muted small">แข็งแรง พลังเยอะ นิยมฝึกเป็นสุนัขนำทางและสุนัขกู้ภัย</p>
+              <a href="breeds.html?group=sporting" class="btn btn-sm btn-outline-warning text-dark w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- อิงลิช ค็อกเกอร์ สเปเนียล -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="sporting">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Medium breeds/english cocker spaniel.jpg" class="card-img-top breed-card-img" alt="อิงลิช ค็อกเกอร์ สเปเนียล" loading="lazy" onerror="this.src='images/breeds/cocker-spaniel.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">Sporting Group</span>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-14 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">อิงลิช ค็อกเกอร์ สเปเนียล (English Cocker Spaniel)</h5>
+              <p class="card-text text-muted small">หูยาว ขนสวย อารมณ์ดี กระตือรือร้น ชอบกิจกรรมกลางแจ้ง</p>
+              <a href="breeds.html?group=sporting" class="btn btn-sm btn-outline-warning text-dark w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== 2. HOUND GROUP (3) ==================== -->
+        <!-- ดัชชุน -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="hound">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Small breeds/Dachshund.jpg" class="card-img-top breed-card-img" alt="ดัชชุน" loading="lazy" onerror="this.src='images/breeds/dachshund.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-info text-white border">Hound Group</span>
+                  <span class="badge bg-success text-white border">พันธุ์เล็ก</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-16 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ดัชชุน / หมาไส้กรอก (Dachshund)</h5>
+              <p class="card-text text-muted small">ตัวยาวขาสั้น ดมกลิ่นเก่ง ขี้สงสัย ซื่อสัตย์ (Hound ใน AKC)</p>
+              <a href="breeds.html?group=hound" class="btn btn-sm btn-outline-info w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- บีเกิ้ล -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="hound">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Medium breeds/beagle.jpg" class="card-img-top breed-card-img" alt="บีเกิ้ล" loading="lazy" onerror="this.src='images/breeds/beagle.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-info text-white border">Hound Group</span>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-15 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">บีเกิ้ล (Beagle)</h5>
+              <p class="card-text text-muted small">จมูกไวเป็นเลิศ กระตือรือร้น ชอบสังคม เป็นมิตรกับทุกคน</p>
+              <a href="breeds.html?group=hound" class="btn btn-sm btn-outline-info w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ไทยหลังอาน -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="hound">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Large breeds/Thai Ridgeback.jpg" class="card-img-top breed-card-img" alt="ไทยหลังอาน" loading="lazy" onerror="this.src='images/breeds/thai-ridgeback.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-info text-white border">Hound Group</span>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-14 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ไทยหลังอาน (Thai Ridgeback Dog)</h5>
+              <p class="card-text text-muted small">สุนัขพื้นเมืองไทยแท้ มีอานบนหลัง แข็งแรง ปราดเปรียว รักษาอาณาเขตได้ดี</p>
+              <a href="breeds.html?group=hound" class="btn btn-sm btn-outline-info w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== 3. WORKING GROUP (6) ==================== -->
+        <!-- ร็อตไวเลอร์ -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="working">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Large breeds/Rottweiler.jpg" class="card-img-top breed-card-img" alt="ร็อตไวเลอร์" loading="lazy" onerror="this.src='images/breeds/rottweiler.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-danger text-white border">Working Group</span>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>9-10 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ร็อตไวเลอร์ (Rottweiler)</h5>
+              <p class="card-text text-muted small">บึกบึน ทรงพลัง สุขุม เป็นสุนัขอารักขาชั้นเยี่ยมเมื่อได้รับการฝึกอย่างถูกต้อง</p>
+              <a href="breeds.html?group=working" class="btn btn-sm btn-outline-danger w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- โดเบอร์แมน พินเชอร์ -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="working">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Large breeds/Doberman Pinscher.jpg" class="card-img-top breed-card-img" alt="โดเบอร์แมน พินเชอร์" loading="lazy" onerror="this.src='images/breeds/doberman.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-danger text-white border">Working Group</span>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>10-12 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">โดเบอร์แมน พินเชอร์ (Doberman Pinscher)</h5>
+              <p class="card-text text-muted small">ปราดเปรียว สง่างาม ว่องไว จงรักภักดีและหวงแหนเจ้าของ</p>
+              <a href="breeds.html?group=working" class="btn btn-sm btn-outline-danger w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- เกรทเดน -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="working">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Large breeds/Great Dane.jpg" class="card-img-top breed-card-img" alt="เกรทเดน" loading="lazy" onerror="this.src='images/breeds/great-dane.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-danger text-white border">Working Group</span>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>8-10 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">เกรทเดน (Great Dane)</h5>
+              <p class="card-text text-muted small">ยักษ์ใหญ่ใจดี ตัวสูงใหญ่แต่มีนิสัยนิ่ง เงียบ สงบ และติดเจ้าของ</p>
+              <a href="breeds.html?group=working" class="btn btn-sm btn-outline-danger w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ไซบีเรียน ฮัสกี้ -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="working">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Large breeds/Siberian Husky.jpg" class="card-img-top breed-card-img" alt="ไซบีเรียน ฮัสกี้" loading="lazy" onerror="this.src='images/breeds/siberian-husky.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-danger text-white border">Working Group</span>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-14 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ไซบีเรียน ฮัสกี้ (Siberian Husky)</h5>
+              <p class="card-text text-muted small">รูปร่างสง่างามเหมือนหมาป่า ตาคม พลังงานสูงมาก ขี้เล่นและมีความเป็นตัวเองสูง</p>
+              <a href="breeds.html?group=working" class="btn btn-sm btn-outline-danger w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- อะแลสกัน มาลามิวต์ -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="working">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Large breeds/Alaskan Malamute.jpg" class="card-img-top breed-card-img" alt="อะแลสกัน มาลามิวต์" loading="lazy" onerror="this.src='images/breeds/alaskan-malamute.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-danger text-white border">Working Group</span>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>10-14 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">อะแลสกัน มาลามิวต์ (Alaskan Malamute)</h5>
+              <p class="card-text text-muted small">ขนาดใหญ่กว่าฮัสกี้ โครงสร้างหนา ขนแน่น สุขุม อ่อนโยน</p>
+              <a href="breeds.html?group=working" class="btn btn-sm btn-outline-danger w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ซามอยด์ -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="working">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Large breeds/Samoyd.jpg" class="card-img-top breed-card-img" alt="ซามอยด์" loading="lazy" onerror="this.src='images/breeds/samoyed.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-danger text-white border">Working Group</span>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-14 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ซามอยด์ (Samoyed)</h5>
+              <p class="card-text text-muted small">ขนขาวฟูนุ่ม มาพร้อม "Samoyed Smile" อารมณ์ดี เป็นมิตร รักทุกคน</p>
+              <a href="breeds.html?group=working" class="btn btn-sm btn-outline-danger w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== 4. TERRIER GROUP (3) ==================== -->
+        <!-- แจ็ครัสเซลล์ เทอร์เรียร์ -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="terrier">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Small breeds/jack russell terrier.jpg" class="card-img-top breed-card-img" alt="แจ็ครัสเซลล์ เทอร์เรียร์" loading="lazy" onerror="this.src='images/breeds/jack-russell.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-success text-white border">Terrier Group</span>
+                  <span class="badge bg-success text-white border">พันธุ์เล็ก</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-14 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">แจ็ครัสเซลล์ เทอร์เรียร์ (Jack Russell Terrier)</h5>
+              <p class="card-text text-muted small">พลังงานล้นเหลือ คล่องแคล่ว ฉลาด ชอบวิ่งและไล่จับสิ่งของ</p>
+              <a href="breeds.html?group=terrier" class="btn btn-sm btn-outline-success w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- มินิเจอร์ ชเนาเซอร์ -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="terrier">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Medium breeds/miniature schnauzer.jpg" class="card-img-top breed-card-img" alt="มินิเจอร์ ชเนาเซอร์" loading="lazy" onerror="this.src='images/breeds/miniature-schnauzer.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-success text-white border">Terrier Group</span>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-15 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">มินิเจอร์ ชเนาเซอร์ (Miniature Schnauzer)</h5>
+              <p class="card-text text-muted small">มีเคราและคิ้วเป็นเอกลักษณ์ ฉลาด ตื่นตัว ซื่อสัตย์ ไม่ค่อยผลัดขน</p>
+              <a href="breeds.html?group=terrier" class="btn btn-sm btn-outline-success w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- บูลเทอร์เรียร์ -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="terrier">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Medium breeds/bull terrier.jpg" class="card-img-top breed-card-img" alt="บูลเทอร์เรียร์" loading="lazy" onerror="this.src='images/breeds/bull-terrier.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-success text-white border">Terrier Group</span>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>11-14 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">บูลเทอร์เรียร์ (Bull Terrier)</h5>
+              <p class="card-text text-muted small">หัวรูปไข่ ตาเฉียง กล้ามเนื้อแน่น ขี้เล่น ซุกซน รักเจ้าของ</p>
+              <a href="breeds.html?group=terrier" class="btn btn-sm btn-outline-success w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== 5. TOY GROUP (7) ==================== -->
+        <!-- ปอมเมอเรเนียน -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="toy">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Small breeds/Pomeranian.jpg" class="card-img-top breed-card-img" alt="ปอมเมอเรเนียน" loading="lazy" onerror="this.src='images/breeds/pomeranian.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">Toy Group</span>
+                  <span class="badge bg-success text-white border">พันธุ์เล็ก</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-16 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ปอมเมอเรเนียน (Pomeranian)</h5>
+              <p class="card-text text-muted small">ขนฟูแน่น ตื่นตัว ขี้เล่น รักเจ้าของมาก พกพาสะดวก</p>
+              <a href="breeds.html?group=toy" class="btn btn-sm btn-outline-warning text-dark w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ชิวาวา -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="toy">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Small breeds/Chihuahua.jpg" class="card-img-top breed-card-img" alt="ชิวาวา" loading="lazy" onerror="this.src='images/breeds/chihuahua.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">Toy Group</span>
+                  <span class="badge bg-success text-white border">พันธุ์เล็ก</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>14-18 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ชิวาวา (Chihuahua)</h5>
+              <p class="card-text text-muted small">ตัวเล็กที่สุดในโลก พกพาง่าย กล้าหาญและหวงเจ้าของ</p>
+              <a href="breeds.html?group=toy" class="btn btn-sm btn-outline-warning text-dark w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- พุดเดิ้ล ทอย -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="toy">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Small breeds/toy poodle.jpg" class="card-img-top breed-card-img" alt="พุดเดิ้ล ทอย" loading="lazy" onerror="this.src='images/breeds/toy-poodle.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">Toy Group</span>
+                  <span class="badge bg-success text-white border">พันธุ์เล็ก</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-15 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">พุดเดิ้ล ทอย (Toy Poodle)</h5>
+              <p class="card-text text-muted small">ฉลาดเป็นอันดับต้นๆ ฝึกง่าย ขนหยิกไม่ค่อยผลัด เหมาะกับคนเป็นภูมิแพ้</p>
+              <a href="breeds.html?group=toy" class="btn btn-sm btn-outline-warning text-dark w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ยอร์กเชียร์ เทอร์เรียร์ -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="toy">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Small breeds/yorkshire terrier.jpg" class="card-img-top breed-card-img" alt="ยอร์กเชียร์ เทอร์เรียร์" loading="lazy" onerror="this.src='images/breeds/yorkshire-terrier.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">Toy Group</span>
+                  <span class="badge bg-success text-white border">พันธุ์เล็ก</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>13-16 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ยอร์กเชียร์ เทอร์เรียร์ (Yorkshire Terrier)</h5>
+              <p class="card-text text-muted small">ขนยาวเงางามคล้ายเส้นผม บุคลิกมั่นใจ ร่าเริง สง่างาม</p>
+              <a href="breeds.html?group=toy" class="btn btn-sm btn-outline-warning text-dark w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ชิสุ -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="toy">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Small breeds/shih tzu.jpg" class="card-img-top breed-card-img" alt="ชิสุ" loading="lazy" onerror="this.src='images/breeds/shih-tzu.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">Toy Group</span>
+                  <span class="badge bg-success text-white border">พันธุ์เล็ก</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>10-16 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ชิสุ (Shih Tzu)</h5>
+              <p class="card-text text-muted small">นิสัยนิ่ง เป็นมิตร ใจดี เข้ากับเด็กและสัตว์อื่นได้ดี ขนยาวนุ่ม</p>
+              <a href="breeds.html?group=toy" class="btn btn-sm btn-outline-warning text-dark w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ปั๊ก -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="toy">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Small breeds/pug.jpg" class="card-img-top breed-card-img" alt="ปั๊ก" loading="lazy" onerror="this.src='images/breeds/pug.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">Toy Group</span>
+                  <span class="badge bg-success text-white border">พันธุ์เล็ก</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-15 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ปั๊ก (Pug)</h5>
+              <p class="card-text text-muted small">หน้าสั้น อารมณ์ดี ตลก ขี้อ้อน ไม่ค่อยเห่า ชอบนอนข้างๆ เจ้าของ</p>
+              <a href="breeds.html?group=toy" class="btn btn-sm btn-outline-warning text-dark w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- มอลทีส -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="toy">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Small breeds/maltese.jpg" class="card-img-top breed-card-img" alt="มอลทีส" loading="lazy" onerror="this.src='images/breeds/maltese.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">Toy Group</span>
+                  <span class="badge bg-success text-white border">พันธุ์เล็ก</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-15 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">มอลทีส (Maltese)</h5>
+              <p class="card-text text-muted small">ขนสีขาวล้วน นุ่มสลวย อ่อนโยน เรียบร้อย ชอบให้อุ้ม</p>
+              <a href="breeds.html?group=toy" class="btn btn-sm btn-outline-warning text-dark w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== 6. HERDING GROUP (4) ==================== -->
+        <!-- คอร์กี้ -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="herding">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Medium breeds/Pembroke Welsh Corgi.jpg" class="card-img-top breed-card-img" alt="พ็อมโบรค เวลช์ คอร์กี้" loading="lazy" onerror="this.src='images/breeds/corgi.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-primary text-white border">Herding Group</span>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-15 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">พ็อมโบรค เวลช์ คอร์กี้ (Pembroke Welsh Corgi)</h5>
+              <p class="card-text text-muted small">ขาสั้น บั้นท้ายกลม อารมณ์ดี ฉลาด ขี้เล่น มีสัญชาตญาณต้อนสัตว์</p>
+              <a href="breeds.html?group=herding" class="btn btn-sm btn-outline-primary w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- บอร์เดอร์ คอลลี่ -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="herding">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Medium breeds/border collie.jpg" class="card-img-top breed-card-img" alt="บอร์เดอร์ คอลลี่" loading="lazy" onerror="this.src='images/breeds/border-collie.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-primary text-white border">Herding Group</span>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-15 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">บอร์เดอร์ คอลลี่ (Border Collie)</h5>
+              <p class="card-text text-muted small">สุนัขที่ฉลาดที่สุดในโลก เรียนรู้เร็วมาก มีสัญชาตญาณต้อนสัตว์สูง</p>
+              <a href="breeds.html?group=herding" class="btn btn-sm btn-outline-primary w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- เชทแลนด์ ชีพด็อก -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="herding">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Medium breeds/Shetland_Sheepdog.jpg" class="card-img-top breed-card-img" alt="เชทแลนด์ ชีพด็อก" loading="lazy" onerror="this.src='images/breeds/sheltie.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-primary text-white border">Herding Group</span>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-14 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">เชทแลนด์ ชีพด็อก (Shetland Sheepdog)</h5>
+              <p class="card-text text-muted small">คล้ายคอลลี่ขนาดเล็ก ขนยาวสวย ฉลาด อ่อนโยน จงรักภักดี</p>
+              <a href="breeds.html?group=herding" class="btn btn-sm btn-outline-primary w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- เยอรมัน เชพเพิร์ด -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="herding">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Large breeds/German Shepherd.jpg" class="card-img-top breed-card-img" alt="เยอรมัน เชพเพิร์ด" loading="lazy" onerror="this.src='images/breeds/german-shepherd.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-primary text-white border">Herding Group</span>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>9-13 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">เยอรมัน เชพเพิร์ด (German Shepherd)</h5>
+              <p class="card-text text-muted small">ฉลาด กล้าหาญ ซื่อสัตย์ นิยมใช้ในงานตำรวจและทหาร (Herding สากล)</p>
+              <a href="breeds.html?group=herding" class="btn btn-sm btn-outline-primary w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== 7. NON-SPORTING GROUP (4) ==================== -->
+        <!-- เฟรนช์ บูลด็อก -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="non-sporting">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Small breeds/french-bulldog.jpg" class="card-img-top breed-card-img" alt="เฟรนช์ บูลด็อก" loading="lazy" onerror="this.src='images/breeds/french-bulldog.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-secondary text-white border">Non-Sporting</span>
+                  <span class="badge bg-success text-white border">พันธุ์เล็ก</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>10-12 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">เฟรนช์ บูลด็อก (French Bulldog)</h5>
+              <p class="card-text text-muted small">หน้าสั้น หูตั้ง ตัวตันกะทัดรัด นิสัยสงบ ไม่ชอบเห่า เหมาะกับคนเมือง</p>
+              <a href="breeds.html?group=non-sporting" class="btn btn-sm btn-outline-secondary w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- อิงลิช บูลด็อก -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="non-sporting">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Medium breeds/english bulldog.jpg" class="card-img-top breed-card-img" alt="อิงลิช บูลด็อก" loading="lazy" onerror="this.src='images/breeds/english-bulldog.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-secondary text-white border">Non-Sporting</span>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>8-10 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">อิงลิช บูลด็อก (English Bulldog)</h5>
+              <p class="card-text text-muted small">หน้าสั้น ตัวตัน รูปร่างหนา นิสัยใจดี สุภาพ รักสงบและติดบ้าน</p>
+              <a href="breeds.html?group=non-sporting" class="btn btn-sm btn-outline-secondary w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ชิบะ อินุ -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="non-sporting">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Medium breeds/shiba-inu.jpg" class="card-img-top breed-card-img" alt="ชิบะ อินุ" loading="lazy" onerror="this.src='images/breeds/shiba-inu.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-secondary text-white border">Non-Sporting</span>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>13-16 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ชิบะ อินุ (Shiba Inu)</h5>
+              <p class="card-text text-muted small">สายพันธุ์จากญี่ปุ่น มีความมั่นใจสูง รักความสะอาด รักอิสระ คล้ายแมว</p>
+              <a href="breeds.html?group=non-sporting" class="btn btn-sm btn-outline-secondary w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ไทยบางแก้ว -->
+        <div class="col-md-6 col-lg-4 explorer-card-wrapper" data-group="non-sporting">
+          <div class="card custom-card h-100">
+            <img src="Assets/images/Medium breeds/thai bangkaew.jpg" class="card-img-top breed-card-img" alt="ไทยบางแก้ว" loading="lazy" onerror="this.src='images/breeds/bangkaew.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-secondary text-white border">Non-Sporting</span>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-14 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ไทยบางแก้ว (Thai Bangkaew Dog)</h5>
+              <p class="card-text text-muted small">สุนัขไทยแท้ ขนฟู หวงบ้าน หวงของ ซื่อสัตย์และภักดีต่อคนในครอบครัว</p>
+              <a href="breeds.html?group=non-sporting" class="btn btn-sm btn-outline-secondary w-100">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> ดูในหน้ารวมสายพันธุ์
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. FOOTER SECTION (ส่วนท้ายเว็บไซต์)
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-heading">
+            <i class="fa-solid fa-paw text-warning me-2"></i>DogPedia
+          </h5>
+          <p class="small text-secondary">
+            ศูนย์รวมข้อมูลสุนัขครบวงจร ช่วยให้คุณศึกษาและทำความเข้าใจสายพันธุ์สุนัขก่อนตัดสินใจเลี้ยงดู
+          </p>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-heading">เมนูหลัก (Navigation)</h5>
+          <ul class="list-unstyled small d-flex flex-column gap-2">
+            <li><a href="index.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> หน้าแรก (Home)</a></li>
+            <li><a href="breeds.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> รวมสายพันธุ์ (All Breeds)</a></li>
+            <li><a href="groups.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> กลุ่มสายพันธุ์ (Breed Groups)</a></li>
+            <li><a href="quiz.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> ค้นหาสุนัขที่ใช่ (Dog Matcher)</a></li>
+            <li><a href="care.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> การดูแลและสุขภาพ (Care & Nutrition)</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> ติดต่อเรา (Contact Us)</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+          <h5 class="footer-heading">ติดต่อสอบถาม</h5>
+          <p class="small text-secondary mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i> กรุงเทพมหานคร ประเทศไทย</p>
+          <p class="small text-secondary mb-2"><i class="fa-solid fa-phone me-2 text-warning"></i> 02-123-4567</p>
+          <p class="small text-secondary mb-3"><i class="fa-solid fa-envelope me-2 text-warning"></i> contact@dogpedia.local</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom text-center text-secondary">
+        <p class="mb-0">© 2026 DogPedia. All rights reserved. พัฒนาด้วย HTML, Bootstrap และ JavaScript</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       8. SCRIPTS
+       ========================================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

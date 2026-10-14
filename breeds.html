@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <!-- ==========================================================================
+       1. META TAGS & TITLE
+       ========================================================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>รวมสายพันธุ์สุนัข (All Breeds) - สุนัขเลี้ยงดอทคอม</title>
+
+  <!-- ==========================================================================
+       2. EXTERNAL CSS & FONTS
+       ========================================================================== -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       3. NAVIGATION BAR (แถบเมนูนำทางหลักทั้ง 6 หน้า)
+       ========================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="brand-icon"><i class="fa-solid fa-paw"></i></span>
+        <span>สุนัขเลี้ยงดอทคอม</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="สลับแถบเมนู">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
+          <!-- เมนูที่ 1: หน้าแรก -->
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="fa-solid fa-house me-1"></i> หน้าแรก
+            </a>
+          </li>
+          <!-- เมนูที่ 2: หน้ารวมสายพันธุ์สุนัข (Active ที่หน้านี้) -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="breeds.html">
+              <i class="fa-solid fa-dog me-1"></i> รวมสายพันธุ์
+            </a>
+          </li>
+          <!-- เมนูที่ 3: หน้าหมวดหมู่/กลุ่มสุนัข -->
+          <li class="nav-item">
+            <a class="nav-link" href="groups.html">
+              <i class="fa-solid fa-layer-group me-1"></i> กลุ่มสายพันธุ์
+            </a>
+          </li>
+          <!-- เมนูที่ 4: หน้าค้นหาสุนัขที่เหมาะกับคุณ -->
+          <li class="nav-item">
+            <a class="nav-link" href="quiz.html">
+              <i class="fa-solid fa-wand-magic-sparkles me-1"></i> ค้นหาสุนัขที่ใช่
+            </a>
+          </li>
+          <!-- เมนูที่ 5: หน้าคู่มือการดูแลสุขภาพและโภชนาการ -->
+          <li class="nav-item">
+            <a class="nav-link" href="care.html">
+              <i class="fa-solid fa-heart-pulse me-1"></i> การดูแลและสุขภาพ
+            </a>
+          </li>
+          <!-- เมนูที่ 6: หน้าติดต่อเรา / แบบฟอร์มสอบถาม -->
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">
+              <i class="fa-solid fa-envelope me-1"></i> ติดต่อเรา
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       4. PAGE HEADER BANNER (แบนเนอร์หัวหน้าเว็บ)
+       ========================================================================== -->
+  <header class="page-header-banner">
+    <div class="container text-center">
+      <span class="badge bg-warning text-dark rounded-pill mb-2">
+        <i class="fa-solid fa-dog me-1"></i> All Breeds Directory
+      </span>
+      <h1 class="fw-bold mb-2">รวมสายพันธุ์สุนัข</h1>
+      <p class="text-secondary mb-0">สารานุกรมรวบรวมข้อมูลสายพันธุ์สุนัขยอดนิยม พร้อมข้อมูลขนาด นิสัย และการเลี้ยงดู</p>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       5. FILTER & SEARCH SECTION (แถบค้นหาและตัวกรองข้อมูลตามขนาด)
+       ========================================================================== -->
+  <section class="py-4 bg-white border-bottom shadow-sm">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <!-- ช่องพิมพ์ค้นหาชื่อสายพันธุ์ -->
+        <div class="col-md-4">
+          <div class="input-group">
+            <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+            <input type="text" id="breedSearchInput" class="form-control border-start-0" placeholder="ค้นหาชื่อสายพันธุ์ (เช่น ปอม, คอร์กี้, โกลเด้น)...">
+          </div>
+        </div>
+
+        <!-- ตัวกรองขนาดตัว (Dropdown) -->
+        <div class="col-md-4">
+          <select class="form-select" id="sizeFilterSelect">
+            <option selected value="all">ทุกขนาดตัว (All Sizes - 30 สายพันธุ์)</option>
+            <option value="small">1. สุนัขพันธุ์เล็ก (Small Breeds / &le; 10 กก.)</option>
+            <option value="medium">2. สุนัขพันธุ์กลาง (Medium Breeds / 10–25 กก.)</option>
+            <option value="large">3. สุนัขพันธุ์ใหญ่ (Large Breeds / &ge; 25 กก.)</option>
+          </select>
+        </div>
+
+        <!-- ตัวกรองกลุ่มสายพันธุ์สากล (Dropdown) -->
+        <div class="col-md-4">
+          <select class="form-select" id="groupFilterSelect">
+            <option selected value="all">ทุกกลุ่มสายพันธุ์ (All Groups - 7 กลุ่ม)</option>
+            <option value="sporting">1. Sporting Group (ล่าสัตว์/เก็บเหยื่อ - 3 สายพันธุ์)</option>
+            <option value="hound">2. Hound Group (ล่าสัตว์ดมกลิ่น/สายตา - 3 สายพันธุ์)</option>
+            <option value="working">3. Working Group (ทำงานและอารักขา - 6 สายพันธุ์)</option>
+            <option value="terrier">4. Terrier Group (เทอร์เรียร์ - 3 สายพันธุ์)</option>
+            <option value="toy">5. Toy Group (พันธุ์จิ๋วเลี้ยงเป็นเพื่อน - 7 สายพันธุ์)</option>
+            <option value="herding">6. Herding Group (ต้อนฝูงสัตว์ - 4 สายพันธุ์)</option>
+            <option value="non-sporting">7. Non-Sporting Group (เอนกประสงค์ - 4 สายพันธุ์)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ปุ่มกดเลือกด่วนตามขนาดและกลุ่ม (Pill Filter Buttons) -->
+      <div class="mt-3 pt-3 border-top">
+        <!-- ตัวกรองตามขนาดตัว -->
+        <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
+          <span class="fw-semibold text-secondary small me-2"><i class="fa-solid fa-weight-hanging me-1 text-warning"></i>เลือกดูตามขนาด:</span>
+          <button type="button" class="btn btn-sm btn-outline-warning size-filter-btn active" data-size="all">
+            <i class="fa-solid fa-border-all me-1"></i> ทั้งหมด (30)
+          </button>
+          <button type="button" class="btn btn-sm btn-outline-warning size-filter-btn" data-size="small">
+            <i class="fa-solid fa-paw me-1"></i> พันธุ์เล็ก (&le; 10 กก.)
+          </button>
+          <button type="button" class="btn btn-sm btn-outline-warning size-filter-btn" data-size="medium">
+            <i class="fa-solid fa-dog me-1"></i> พันธุ์กลาง (10–25 กก.)
+          </button>
+          <button type="button" class="btn btn-sm btn-outline-warning size-filter-btn" data-size="large">
+            <i class="fa-solid fa-shield-dog me-1"></i> พันธุ์ใหญ่ (&ge; 25 กก.)
+          </button>
+        </div>
+
+        <!-- ตัวกรองตาม 7 กลุ่มมาตรฐานสากล -->
+        <div class="d-flex flex-wrap gap-2 align-items-center">
+          <span class="fw-semibold text-secondary small me-2"><i class="fa-solid fa-layer-group me-1 text-primary"></i>เลือกดูตาม 7 กลุ่ม:</span>
+          <button type="button" class="btn btn-sm btn-dark text-white group-filter-btn active" data-group="all">
+            ทั้งหมด (7 กลุ่ม)
+          </button>
+          <button type="button" class="btn btn-sm btn-outline-secondary group-filter-btn" data-group="sporting">
+            <i class="fa-solid fa-feather-pointed me-1"></i>Sporting (3)
+          </button>
+          <button type="button" class="btn btn-sm btn-outline-secondary group-filter-btn" data-group="hound">
+            <i class="fa-solid fa-compass me-1"></i>Hound (3)
+          </button>
+          <button type="button" class="btn btn-sm btn-outline-secondary group-filter-btn" data-group="working">
+            <i class="fa-solid fa-shield-halved me-1"></i>Working (6)
+          </button>
+          <button type="button" class="btn btn-sm btn-outline-secondary group-filter-btn" data-group="terrier">
+            <i class="fa-solid fa-bolt me-1"></i>Terrier (3)
+          </button>
+          <button type="button" class="btn btn-sm btn-outline-secondary group-filter-btn" data-group="toy">
+            <i class="fa-solid fa-heart me-1"></i>Toy (7)
+          </button>
+          <button type="button" class="btn btn-sm btn-outline-secondary group-filter-btn" data-group="herding">
+            <i class="fa-solid fa-share-nodes me-1"></i>Herding (4)
+          </button>
+          <button type="button" class="btn btn-sm btn-outline-secondary group-filter-btn" data-group="non-sporting">
+            <i class="fa-solid fa-shapes me-1"></i>Non-Sporting (4)
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. BREEDS GRID SECTION (รายการการ์ดสายพันธุ์สุนัขแบ่งตามขนาด 30 สายพันธุ์)
+       ========================================================================== -->
+  <main class="section-padding">
+    <div class="container">
+      <div class="row g-4" id="breedListContainer">
+
+        <!-- ==============================================================
+             กลุ่มที่ 1 : สุนัขพันธุ์เล็ก (Small Breeds / น้ำหนักไม่เกิน 10 กก.)
+             เหมาะสำหรับพื้นที่จำกัด เช่น คอนโดมิเนียม ทาวน์โฮม หรือพกพาสะดวก
+             ============================================================== -->
+        <div class="col-12 size-category-header" id="smallCategoryHeader" data-size-header="small">
+          <div class="alert alert-warning border-0 shadow-sm rounded-4 p-4 mb-2">
+            <div class="d-flex align-items-center mb-2">
+              <span class="fs-2 me-3"><i class="fa-solid fa-paw text-warning"></i></span>
+              <div>
+                <h4 class="fw-bold mb-0 text-dark">1. สุนัขพันธุ์เล็ก (Small Breeds / น้ำหนักไม่เกิน 10 กก.)</h4>
+                <span class="badge bg-warning text-dark mt-1">10 สายพันธุ์ยอดนิยม (หน้า 1)</span>
+              </div>
+            </div>
+            <p class="text-secondary mb-0 small">
+              เหมาะสำหรับพื้นที่จำกัด เช่น คอนโดมิเนียม ทาวน์โฮม หรือผู้เลี้ยงที่ต้องการสุนัขที่พาไปไหนมาไหนสะดวก
+            </p>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 1: ปอมเมอเรเนียน -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="small" data-group="toy" data-page="1">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Small breeds/Pomeranian.jpg" class="card-img-top breed-card-img" alt="ปอมเมอเรเนียน (Pomeranian)" loading="lazy" onerror="this.src='images/breeds/pomeranian.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">พันธุ์เล็ก &le; 10 กก.</span>
+                  <span class="badge bg-light text-dark border">Toy Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-16 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ปอมเมอเรเนียน (Pomeranian)</h5>
+              <p class="card-text text-muted small">ขนฟูแน่น ตื่นตัว ขี้เล่น รักเจ้าของมาก</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-warning me-2"></i>น้ำหนัก: 1.5 - 3.5 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: ร่าเริง ฉลาด ขี้อ้อน ตื่นตัว</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 2: ชิวาวา -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="small" data-group="toy" data-page="1">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Small breeds/Chihuahua.jpg" class="card-img-top breed-card-img" alt="ชิวาวา (Chihuahua)" loading="lazy" onerror="this.src='images/breeds/chihuahua.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">พันธุ์เล็ก &le; 10 กก.</span>
+                  <span class="badge bg-light text-dark border">Toy Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>14-18 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ชิวาวา (Chihuahua)</h5>
+              <p class="card-text text-muted small">ตัวเล็กที่สุดในโลก พกพาง่าย กล้าหาญและหวงเจ้าของ</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-warning me-2"></i>น้ำหนัก: 1 - 3 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: กล้าหาญ ซื่อสัตย์ ติดเจ้าของ</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 3: พุดเดิ้ล ทอย -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="small" data-group="toy" data-page="1">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Small breeds/toy poodle.jpg" class="card-img-top breed-card-img" alt="พุดเดิ้ล ทอย (Toy Poodle)" loading="lazy" onerror="this.src='images/breeds/toy-poodle.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">พันธุ์เล็ก &le; 10 กก.</span>
+                  <span class="badge bg-light text-dark border">Toy Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-15 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">พุดเดิ้ล ทอย (Toy Poodle)</h5>
+              <p class="card-text text-muted small">ฉลาดเป็นอันดับต้นๆ ฝึกง่าย ขนหยิกไม่ค่อยผลัด เหมาะกับคนเป็นภูมิแพ้</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-warning me-2"></i>น้ำหนัก: 2 - 4 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: ฉลาดมาก สอนง่าย ร่าเริง</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 4: ยอร์กเชียร์ เทอร์เรียร์ -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="small" data-group="toy" data-page="1">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Small breeds/yorkshire terrier.jpg" class="card-img-top breed-card-img" alt="ยอร์กเชียร์ เทอร์เรียร์ (Yorkshire Terrier)" loading="lazy" onerror="this.src='images/breeds/yorkshire-terrier.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">พันธุ์เล็ก &le; 10 กก.</span>
+                  <span class="badge bg-light text-dark border">Toy Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>13-16 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ยอร์กเชียร์ เทอร์เรียร์ (Yorkshire Terrier)</h5>
+              <p class="card-text text-muted small">ขนยาวเงางามคล้ายเส้นผม บุคลิกมั่นใจ ร่าเริง</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-warning me-2"></i>น้ำหนัก: 2 - 3.2 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: มั่นใจ ซน ขี้อ้อน</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 5: ชิสุ -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="small" data-group="toy" data-page="1">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Small breeds/shih tzu.jpg" class="card-img-top breed-card-img" alt="ชิสุ (Shih Tzu)" loading="lazy" onerror="this.src='images/breeds/shih-tzu.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">พันธุ์เล็ก &le; 10 กก.</span>
+                  <span class="badge bg-light text-dark border">Toy Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>10-16 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ชิสุ (Shih Tzu)</h5>
+              <p class="card-text text-muted small">นิสัยนิ่ง เป็นมิตร ใจดี เข้ากับเด็กและสัตว์อื่นได้ดี ขนยาวนุ่ม</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-warning me-2"></i>น้ำหนัก: 4 - 7.5 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: อ่อนหวาน อ่อนโยน เข้ากับทุกคนง่าย</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 6: ปั๊ก -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="small" data-group="toy" data-page="1">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Small breeds/pug.jpg" class="card-img-top breed-card-img" alt="ปั๊ก (Pug)" loading="lazy" onerror="this.src='images/breeds/pug.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">พันธุ์เล็ก &le; 10 กก.</span>
+                  <span class="badge bg-light text-dark border">Toy Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-15 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ปั๊ก (Pug)</h5>
+              <p class="card-text text-muted small">หน้าสั้น อารมณ์ดี ตลก ขี้อ้อน ไม่ค่อยเห่า ชอบนอนข้างๆ เจ้าของ</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-warning me-2"></i>น้ำหนัก: 6 - 8 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: ตลก น่ารัก ขี้ประจบ เงียบสงบ</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 7: มอลทีส -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="small" data-group="toy" data-page="1">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Small breeds/maltese.jpg" class="card-img-top breed-card-img" alt="มอลทีส (Maltese)" loading="lazy" onerror="this.src='images/breeds/maltese.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">พันธุ์เล็ก &le; 10 กก.</span>
+                  <span class="badge bg-light text-dark border">Toy Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-15 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">มอลทีส (Maltese)</h5>
+              <p class="card-text text-muted small">ขนสีขาวล้วน นุ่มสลวย อ่อนโยน เรียบร้อย ชอบให้อุ้ม</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-warning me-2"></i>น้ำหนัก: 2 - 4 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: เรียบร้อย สุภาพ ติดเจ้าของ</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 8: แจ็ครัสเซลล์ เทอร์เรียร์ -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="small" data-group="terrier" data-page="1">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Small breeds/jack russell terrier.jpg" class="card-img-top breed-card-img" alt="แจ็ครัสเซลล์ เทอร์เรียร์ (Jack Russell Terrier)" loading="lazy" onerror="this.src='images/breeds/jack-russell.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">พันธุ์เล็ก &le; 10 กก.</span>
+                  <span class="badge bg-light text-dark border">Terrier Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>13-16 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">แจ็ครัสเซลล์ เทอร์เรียร์ (Jack Russell Terrier)</h5>
+              <p class="card-text text-muted small">พลังงานล้นเหลือ คล่องแคล่ว ฉลาด ชอบวิ่งและไล่จับสิ่งของ</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-warning me-2"></i>น้ำหนัก: 5 - 7 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: พลังเยอะ มุ่งมั่น กระตือรือร้น</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 9: ดัชชุน / หมาไส้กรอก -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="small" data-group="hound" data-page="1">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Small breeds/Dachshund.jpg" class="card-img-top breed-card-img" alt="ดัชชุน / หมาไส้กรอก (Dachshund)" loading="lazy" onerror="this.src='images/breeds/dachshund.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">พันธุ์เล็ก &le; 10 กก.</span>
+                  <span class="badge bg-light text-dark border">Hound Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-16 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ดัชชุน / หมาไส้กรอก (Dachshund)</h5>
+              <p class="card-text text-muted small">ตัวยาวขาสั้น ดมกลิ่นเก่ง ขี้สงสัย ซื่อสัตย์</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-warning me-2"></i>น้ำหนัก: 4 - 9 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: ขี้สงสัย ซื่อสัตย์ ดื้อรั้นเล็กน้อย</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 10: เฟรนช์ บูลด็อก -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="small" data-group="non-sporting" data-page="1">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Small breeds/french-bulldog.jpg" class="card-img-top breed-card-img" alt="เฟรนช์ บูลด็อก (French Bulldog)" loading="lazy" onerror="this.src='images/breeds/french-bulldog.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-warning text-dark border">พันธุ์เล็ก &le; 10 กก.</span>
+                  <span class="badge bg-light text-dark border">Non-Sporting</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>10-12 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">เฟรนช์ บูลด็อก (French Bulldog)</h5>
+              <p class="card-text text-muted small">หน้าสั้น หูตั้ง ตัวตันกะทัดรัด นิสัยสงบ ไม่ชอบเห่า เหมาะกับวิถีชีวิตคนเมือง</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-warning me-2"></i>น้ำหนัก: 8 - 10 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: สงบ ขี้อ้อน ปรับตัวเก่ง ไม่ค่อยเห่า</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             กลุ่มที่ 2 : สุนัขพันธุ์กลาง (Medium Breeds / น้ำหนักประมาณ 10–25 กก.)
+             ขนาดกำลังพอดี มีความคล่องตัวสูง เหมาะกับบ้านที่มีพื้นที่วิ่งเล่นระดับปานกลาง
+             ============================================================== -->
+        <div class="col-12 size-category-header" id="mediumCategoryHeader" data-size-header="medium" style="display: none;">
+          <div class="alert alert-info border-0 shadow-sm rounded-4 p-4 mb-2">
+            <div class="d-flex align-items-center mb-2">
+              <span class="fs-2 me-3"><i class="fa-solid fa-dog text-info"></i></span>
+              <div>
+                <h4 class="fw-bold mb-0 text-dark">2. สุนัขพันธุ์กลาง (Medium Breeds / น้ำหนักประมาณ 10–25 กก.)</h4>
+                <span class="badge bg-info text-white mt-1">10 สายพันธุ์ยอดนิยม (หน้า 2)</span>
+              </div>
+            </div>
+            <p class="text-secondary mb-0 small">
+              ขนาดกำลังพอดี มีความคล่องตัวสูง เหมาะกับบ้านที่มีพื้นที่วิ่งเล่นระดับปานกลาง
+            </p>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 11: พ็อมโบรค เวลช์ คอร์กี้ -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="medium" data-group="herding" data-page="2" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Medium breeds/Pembroke Welsh Corgi.jpg" class="card-img-top breed-card-img" alt="พ็อมโบรค เวลช์ คอร์กี้ (Pembroke Welsh Corgi)" loading="lazy" onerror="this.src='images/breeds/corgi.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง 10–25 กก.</span>
+                  <span class="badge bg-light text-dark border">Herding Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-15 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">พ็อมโบรค เวลช์ คอร์กี้ (Pembroke Welsh Corgi)</h5>
+              <p class="card-text text-muted small">ขาสั้น บั้นท้ายกลม อารมณ์ดี ฉลาด ขี้เล่น</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-info me-2"></i>น้ำหนัก: 10 - 14 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: ร่าเริง ฉลาด คล่องแคล่ว ขี้เล่น</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 12: บีเกิ้ล -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="medium" data-group="hound" data-page="2" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Medium breeds/beagle.jpg" class="card-img-top breed-card-img" alt="บีเกิ้ล (Beagle)" loading="lazy" onerror="this.src='images/breeds/beagle.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง 10–25 กก.</span>
+                  <span class="badge bg-light text-dark border">Hound Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-15 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">บีเกิ้ล (Beagle)</h5>
+              <p class="card-text text-muted small">จมูกไวเป็นเลิศ กระตือรือร้น ชอบสังคม เป็นมิตรกับทุกคน</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-info me-2"></i>น้ำหนัก: 10 - 15 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: จมูกไว รักสนุก เป็นมิตร</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 13: ชิบะ อินุ -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="medium" data-group="non-sporting" data-page="2" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Medium breeds/shiba-inu.jpg" class="card-img-top breed-card-img" alt="ชิบะ อินุ (Shiba Inu)" loading="lazy" onerror="this.src='images/breeds/shiba-inu.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง 10–25 กก.</span>
+                  <span class="badge bg-light text-dark border">Non-Sporting</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>13-16 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ชิบะ อินุ (Shiba Inu)</h5>
+              <p class="card-text text-muted small">สายพันธุ์จากญี่ปุ่น มีความมั่นใจสูง รักความสะอาด รักอิสระ คล้ายแมว</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-info me-2"></i>น้ำหนัก: 10 - 13 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: รักสะอาด รักอิสระ มั่นใจในตัวเอง</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 14: ไทยบางแก้ว -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="medium" data-group="non-sporting" data-page="2" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Medium breeds/thai bangkaew.jpg" class="card-img-top breed-card-img" alt="ไทยบางแก้ว (Thai Bangkaew Dog)" loading="lazy" onerror="this.src='images/breeds/thai-bangkaew.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง 10–25 กก.</span>
+                  <span class="badge bg-light text-dark border">Non-Sporting</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-14 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ไทยบางแก้ว (Thai Bangkaew Dog)</h5>
+              <p class="card-text text-muted small">สุนัขไทยแท้ ขนฟู หวงบ้าน หวงของ ซื่อสัตย์และภักดีต่อคนในครอบครัวเป็นเลิศ</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-info me-2"></i>น้ำหนัก: 13 - 20 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: หวงบ้าน ภักดี ซื่อสัตย์ ฉลาด</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 15: บอร์เดอร์ คอลลี่ -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="medium" data-group="herding" data-page="2" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Medium breeds/border collie.jpg" class="card-img-top breed-card-img" alt="บอร์เดอร์ คอลลี่ (Border Collie)" loading="lazy" onerror="this.src='images/breeds/border-collie.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง 10–25 กก.</span>
+                  <span class="badge bg-light text-dark border">Herding Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-15 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">บอร์เดอร์ คอลลี่ (Border Collie)</h5>
+              <p class="card-text text-muted small">สุนัขที่ฉลาดที่สุดในโลก คล่องแคล่ว ต้องการกิจกรรมฝึกสมองและการวิ่งเล่นสูง</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-info me-2"></i>น้ำหนัก: 14 - 22 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: ฉลาดที่สุด ว่องไว ชอบทำงาน</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 16: อิงลิช ค็อกเกอร์ สเปเนียล -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="medium" data-group="sporting" data-page="2" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Medium breeds/english cocker spaniel.jpg" class="card-img-top breed-card-img" alt="อิงลิช ค็อกเกอร์ สเปเนียล (English Cocker Spaniel)" loading="lazy" onerror="this.src='images/breeds/cocker-spaniel.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง 10–25 กก.</span>
+                  <span class="badge bg-light text-dark border">Sporting Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-14 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">อิงลิช ค็อกเกอร์ สเปเนียล (English Cocker Spaniel)</h5>
+              <p class="card-text text-muted small">หูยาวน่ารัก นิสัยอ่อนหวาน ขี้เล่น ชอบน้ำและการเดินป่า</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-info me-2"></i>น้ำหนัก: 12 - 16 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: อ่อนหวาน อ่อนโยน ชอบเล่นน้ำ</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 17: บูลด็อก / อิงลิช บูลด็อก -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="medium" data-group="non-sporting" data-page="2" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Medium breeds/english bulldog.jpg" class="card-img-top breed-card-img" alt="บูลด็อก / อิงลิช บูลด็อก (English Bulldog)" loading="lazy" onerror="this.src='images/breeds/english-bulldog.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง 10–25 กก.</span>
+                  <span class="badge bg-light text-dark border">Non-Sporting</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>8-10 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">บูลด็อก / อิงลิช บูลด็อก (English Bulldog)</h5>
+              <p class="card-text text-muted small">รูปร่างหนาบึกบึน ใจเย็น รักสงบ ไม่ค่อยกระตือรือร้นเรื่องออกกำลังกาย</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-info me-2"></i>น้ำหนัก: 18 - 25 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: สุขุม รักสงบ ใจเย็น ไม่ชอบวิ่งเยอะ</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 18: มินิเจอร์ ชเนาเซอร์ -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="medium" data-group="terrier" data-page="2" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Medium breeds/miniature schnauzer.jpg" class="card-img-top breed-card-img" alt="มินิเจอร์ ชเนาเซอร์ (Miniature Schnauzer)" loading="lazy" onerror="this.src='images/breeds/miniature-schnauzer.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง 10–25 กก.</span>
+                  <span class="badge bg-light text-dark border">Terrier Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-15 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">มินิเจอร์ ชเนาเซอร์ (Miniature Schnauzer)</h5>
+              <p class="card-text text-muted small">มีเอกลักษณ์ที่เคราและคิ้วหนา ฉลาด ป้องกันอาณาเขตได้ดี</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-info me-2"></i>น้ำหนัก: 10 - 12 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: ฉลาด ตื่นตัว เฝ้าระวังภัยดี</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 19: เชลตี / เชตแลนด์ ชีพด็อก -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="medium" data-group="herding" data-page="2" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Medium breeds/Shetland_Sheepdog.jpg" class="card-img-top breed-card-img" alt="เชลตี / เชตแลนด์ ชีพด็อก (Shetland Sheepdog)" loading="lazy" onerror="this.src='images/breeds/shetland-sheepdog.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง 10–25 กก.</span>
+                  <span class="badge bg-light text-dark border">Herding Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-14 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">เชลตี / เชตแลนด์ ชีพด็อก (Shetland Sheepdog)</h5>
+              <p class="card-text text-muted small">หน้าตาคล้ายคอลลี่ไซส์ย่อส่วน ฉลาด สอนง่าย รักครอบครัว</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-info me-2"></i>น้ำหนัก: 10 - 14 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: อ่อนโยน ฉลาดมาก ซื่อสัตย์</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 20: บูลเทอร์เรียร์ -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="medium" data-group="terrier" data-page="2" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Medium breeds/bull terrier.jpg" class="card-img-top breed-card-img" alt="บูลเทอร์เรียร์ (Bull Terrier)" loading="lazy" onerror="this.src='images/breeds/bull-terrier.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-info text-white border">พันธุ์กลาง 10–25 กก.</span>
+                  <span class="badge bg-light text-dark border">Terrier Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>11-14 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">บูลเทอร์เรียร์ (Bull Terrier)</h5>
+              <p class="card-text text-muted small">หน้าทรงรูปไข่ ล่ำสัน อารมณ์ขัน ขี้เล่น และรักการผจญภัย</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-info me-2"></i>น้ำหนัก: 20 - 25 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: อารมณ์ขัน กล้าหาญ ล่ำสัน</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             กลุ่มที่ 3 : สุนัขพันธุ์ใหญ่ (Large Breeds / น้ำหนัก 25 กก. ขึ้นไป)
+             ต้องการพื้นที่บริเวณบ้านและการออกกำลังกายสม่ำเสมอ เด่นเรื่องการปกป้องและความสุขุม
+             ============================================================== -->
+        <div class="col-12 size-category-header" id="largeCategoryHeader" data-size-header="large" style="display: none;">
+          <div class="alert alert-primary border-0 shadow-sm rounded-4 p-4 mb-2">
+            <div class="d-flex align-items-center mb-2">
+              <span class="fs-2 me-3"><i class="fa-solid fa-shield-dog text-primary"></i></span>
+              <div>
+                <h4 class="fw-bold mb-0 text-dark">3. สุนัขพันธุ์ใหญ่ (Large Breeds / น้ำหนัก 25 กก. ขึ้นไป)</h4>
+                <span class="badge bg-primary text-white mt-1">10 สายพันธุ์ยอดนิยม (หน้า 3)</span>
+              </div>
+            </div>
+            <p class="text-secondary mb-0 small">
+              ต้องการพื้นที่บริเวณบ้านและการออกกำลังกายสม่ำเสมอ เด่นเรื่องการปกป้องและความสุขุม
+            </p>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 21: โกลเด้น รีทรีฟเวอร์ -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="large" data-group="sporting" data-page="3" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Large breeds/Golden Retriever.jpg" class="card-img-top breed-card-img" alt="โกลเด้น รีทรีฟเวอร์ (Golden Retriever)" loading="lazy" onerror="this.src='images/breeds/golden-retriever.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่ &ge; 25 กก.</span>
+                  <span class="badge bg-light text-dark border">Sporting Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>10-12 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">โกลเด้น รีทรีฟเวอร์ (Golden Retriever)</h5>
+              <p class="card-text text-muted small">ใจดี อ่อนโยน เข้ากับเด็กได้ดี ฉลาดและฝึกง่าย ขวัญใจครอบครัว</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-primary me-2"></i>น้ำหนัก: 27 - 36 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: อ่อนโยน ฉลาดมาก เข้ากับเด็กได้ดี</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 22: ลาบราดอร์ รีทรีฟเวอร์ -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="large" data-group="sporting" data-page="3" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Large breeds/Labrador Retriever.jpg" class="card-img-top breed-card-img" alt="ลาบราดอร์ รีทรีฟเวอร์ (Labrador Retriever)" loading="lazy" onerror="this.src='images/breeds/labrador-retriever.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่ &ge; 25 กก.</span>
+                  <span class="badge bg-light text-dark border">Sporting Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>10-12 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ลาบราดอร์ รีทรีฟเวอร์ (Labrador Retriever)</h5>
+              <p class="card-text text-muted small">แข็งแรง พลังเยอะ นิยมฝึกเป็นสุนัขนำทางและสุนัขกู้ภัย</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-primary me-2"></i>น้ำหนัก: 27 - 38 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: แข็งแรง ใจดี เชื่อฟังคำสั่งดี</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 23: ไซบีเรียน ฮัสกี้ -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="large" data-group="working" data-page="3" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Large breeds/Siberian Husky.jpg" class="card-img-top breed-card-img" alt="ไซบีเรียน ฮัสกี้ (Siberian Husky)" loading="lazy" onerror="this.src='images/breeds/siberian-husky.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่ &ge; 25 กก.</span>
+                  <span class="badge bg-light text-dark border">Working Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-14 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ไซบีเรียน ฮัสกี้ (Siberian Husky)</h5>
+              <p class="card-text text-muted small">รูปร่างสง่างามเหมือนหมาป่า ตาคม พลังงานสูงมาก ขี้เล่นและมีความเป็นตัวเองสูง</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-primary me-2"></i>น้ำหนัก: 25 - 28 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: พลังงานสูง ซน พูดคุยเก่ง ร่าเริง</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 24: เยอรมัน เชพเพิร์ด -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="large" data-group="herding" data-page="3" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Large breeds/German Shepherd.jpg" class="card-img-top breed-card-img" alt="เยอรมัน เชพเพิร์ด (German Shepherd)" loading="lazy" onerror="this.src='images/breeds/german-shepherd.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่ &ge; 25 กก.</span>
+                  <span class="badge bg-light text-dark border">Herding Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>9-13 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">เยอรมัน เชพเพิร์ด (German Shepherd)</h5>
+              <p class="card-text text-muted small">ฉลาด กล้าหาญ ซื่อสัตย์ นิยมใช้ในงานตำรวจและทหาร</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-primary me-2"></i>น้ำหนัก: 30 - 40 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: กล้าหาญ ซื่อสัตย์ มีระเบียบวินัย</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 25: ไทยหลังอาน -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="large" data-group="hound" data-page="3" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Large breeds/Thai Ridgeback.jpg" class="card-img-top breed-card-img" alt="ไทยหลังอาน (Thai Ridgeback Dog)" loading="lazy" onerror="this.src='images/breeds/thai-ridgeback.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่ &ge; 25 กก.</span>
+                  <span class="badge bg-light text-dark border">Hound Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-14 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ไทยหลังอาน (Thai Ridgeback Dog)</h5>
+              <p class="card-text text-muted small">สุนัขพื้นเมืองไทยแท้ มีอานบนหลัง แข็งแรง ปราดเปรียว รักษาอาณาเขตได้ดี</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-primary me-2"></i>น้ำหนัก: 25 - 34 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: ปราดเปรียว รักษาอาณาเขต ซื่อสัตย์</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 26: ร็อตไวเลอร์ -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="large" data-group="working" data-page="3" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Large breeds/Rottweiler.jpg" class="card-img-top breed-card-img" alt="ร็อตไวเลอร์ (Rottweiler)" loading="lazy" onerror="this.src='images/breeds/rottweiler.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่ &ge; 25 กก.</span>
+                  <span class="badge bg-light text-dark border">Working Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>9-10 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ร็อตไวเลอร์ (Rottweiler)</h5>
+              <p class="card-text text-muted small">บึกบึน ทรงพลัง สุขุม เป็นสุนัขอารักขาชั้นเยี่ยมเมื่อได้รับการฝึกอย่างถูกต้อง</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-primary me-2"></i>น้ำหนัก: 38 - 55 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: สุขุม ทรงพลัง อารักขาเก่ง</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 27: โดเบอร์แมน พินเชอร์ -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="large" data-group="working" data-page="3" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Large breeds/Doberman Pinscher.jpg" class="card-img-top breed-card-img" alt="โดเบอร์แมน พินเชอร์ (Doberman Pinscher)" loading="lazy" onerror="this.src='images/breeds/doberman.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่ &ge; 25 กก.</span>
+                  <span class="badge bg-light text-dark border">Working Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>10-12 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">โดเบอร์แมน พินเชอร์ (Doberman Pinscher)</h5>
+              <p class="card-text text-muted small">ปราดเปรียว สง่างาม ว่องไว จงรักภักดีและหวงแหนเจ้าของ</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-primary me-2"></i>น้ำหนัก: 32 - 45 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: สง่างาม ว่องไว จงรักภักดี</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 28: อะแลสกัน มาลามิวต์ -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="large" data-group="working" data-page="3" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Large breeds/Alaskan Malamute.jpg" class="card-img-top breed-card-img" alt="อะแลสกัน มาลามิวต์ (Alaskan Malamute)" loading="lazy" onerror="this.src='images/breeds/alaskan-malamute.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่ &ge; 25 กก.</span>
+                  <span class="badge bg-light text-dark border">Working Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>10-14 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">อะแลสกัน มาลามิวต์ (Alaskan Malamute)</h5>
+              <p class="card-text text-muted small">ขนาดใหญ่กว่าฮัสกี้ โครงสร้างหนา ขนแน่น สุขุม อ่อนโยน</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-primary me-2"></i>น้ำหนัก: 34 - 45 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: สุขุม อ่อนโยน แข็งแกร่ง</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 29: เกรทเดน -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="large" data-group="working" data-page="3" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Large breeds/Great Dane.jpg" class="card-img-top breed-card-img" alt="เกรทเดน (Great Dane)" loading="lazy" onerror="this.src='images/breeds/great-dane.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่ &ge; 25 กก.</span>
+                  <span class="badge bg-light text-dark border">Working Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>8-10 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">เกรทเดน (Great Dane)</h5>
+              <p class="card-text text-muted small">ยักษ์ใหญ่ใจดี ตัวสูงใหญ่แต่มีนิสัยนิ่ง เงียบ สงบ และติดเจ้าของ</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-primary me-2"></i>น้ำหนัก: 50 - 80 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: ยักษ์ใหญ่ใจดี นิ่ง สงบ ติดคน</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- สายพันธุ์ที่ 30: ซามอยด์ -->
+        <div class="col-md-6 col-lg-4 col-breed-wrapper" data-size="large" data-group="working" data-page="3" style="display: none;">
+          <div class="card custom-card h-100 breed-item-card">
+            <!-- รูปภาพสายพันธุ์จากโฟลเดอร์ Assets -->
+            <img src="Assets/images/Large breeds/Samoyd.jpg" class="card-img-top breed-card-img" alt="ซามอยด์ (Samoyed)" loading="lazy" onerror="this.src='images/breeds/samoyed.svg'">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-1">
+                <div>
+                  <span class="badge bg-primary text-white border">พันธุ์ใหญ่ &ge; 25 กก.</span>
+                  <span class="badge bg-light text-dark border">Working Group</span>
+                </div>
+                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>12-14 ปี</span>
+              </div>
+              <h5 class="card-title fw-bold">ซามอยด์ (Samoyed)</h5>
+              <p class="card-text text-muted small">ขนขาวฟูนุ่ม มาพร้อม "Samoyed Smile" อารมณ์ดี เป็นมิตร ไม่เหมาะสำหรับเฝ้าบ้านเพราะรักทุกคน</p>
+              <div class="border-top pt-2 small text-secondary">
+                <div><i class="fa-solid fa-weight-hanging text-primary me-2"></i>น้ำหนัก: 25 - 30 กก.</div>
+                <div><i class="fa-solid fa-heart text-danger me-2"></i>นิสัย: อารมณ์ดี ยิ้มเก่ง เป็นมิตรกับทุกคน</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ======================================================================
+           7. PAGINATION (ส่วนเลือกหน้าถัดไป / หน้าก่อนหน้า)
+           ====================================================================== -->
+      <div class="mt-5 text-center" id="breedsPaginationWrapper">
+        <div class="d-inline-flex flex-wrap align-items-center justify-content-center gap-2 p-2 bg-white rounded-pill shadow-sm border">
+          <!-- ปุ่มหน้าก่อนหน้า -->
+          <button type="button" class="btn btn-outline-warning rounded-pill px-4" id="prevPageBtn">
+            <i class="fa-solid fa-arrow-left me-1"></i> หน้าก่อนหน้า
+          </button>
+
+          <!-- ข้อความบอกสถานะหน้าปัจจุบัน -->
+          <span class="px-3 fw-semibold text-secondary small" id="pageIndicatorText">
+            <span class="badge bg-light text-dark border me-1" id="currentPageBadge">หน้า 1 / 3</span>
+            <span class="text-dark fw-bold" id="currentPageName">สุนัขพันธุ์เล็ก (10 สายพันธุ์)</span>
+          </span>
+
+          <!-- ปุ่มหน้าถัดไป -->
+          <button type="button" class="btn btn-warning text-dark rounded-pill px-4 fw-semibold" id="nextPageBtn">
+            หน้าถัดไป <i class="fa-solid fa-arrow-right ms-1"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       8. FOOTER SECTION (ส่วนท้ายเว็บไซต์)
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-heading">
+            <i class="fa-solid fa-paw text-warning me-2"></i>สุนัขเลี้ยงดอทคอม
+          </h5>
+          <p class="small text-secondary">
+            ศูนย์รวมข้อมูลสุนัขครบวงจร ช่วยให้คุณศึกษาและทำความเข้าใจสายพันธุ์สุนัขก่อนตัดสินใจเลี้ยงดู
+          </p>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-heading">เมนูหลัก (Navigation)</h5>
+          <ul class="list-unstyled small d-flex flex-column gap-2">
+            <li><a href="index.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> หน้าแรก (Home)</a></li>
+            <li><a href="breeds.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> รวมสายพันธุ์ (All Breeds)</a></li>
+            <li><a href="groups.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> กลุ่มสายพันธุ์ (Breed Groups)</a></li>
+            <li><a href="quiz.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> ค้นหาสุนัขที่ใช่ (Dog Matcher)</a></li>
+            <li><a href="care.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> การดูแลและสุขภาพ (Care & Nutrition)</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-chevron-right me-1 text-warning"></i> ติดต่อเรา (Contact Us)</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+          <h5 class="footer-heading">ติดต่อสอบถาม</h5>
+          <p class="small text-secondary mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i> กรุงเทพมหานคร ประเทศไทย</p>
+          <p class="small text-secondary mb-2"><i class="fa-solid fa-phone me-2 text-warning"></i> 02-123-4567</p>
+          <p class="small text-secondary mb-3"><i class="fa-solid fa-envelope me-2 text-warning"></i> contact@msu.ac.th</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom text-center text-secondary">
+        <p class="mb-0">© 2026 สุนัขเลี้ยงดอทคอม All rights reserved. พัฒนาด้วย HTML, Bootstrap และ JavaScript</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       9. SCRIPTS
+       ========================================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+
